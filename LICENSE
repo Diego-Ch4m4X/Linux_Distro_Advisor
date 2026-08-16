@@ -1,0 +1,78 @@
+# Licenças do projeto
+
+Copyright (c) 2026 Diego (Diego-Ch4m4X)
+
+Este projeto adota licenciamento duplo porque reúne documentação técnica,
+conteúdo educacional, catálogo factual curado e código executável.
+
+## 1. Documentação e conteúdo — CC BY 4.0
+
+Salvo indicação expressa em contrário, o README, as explicações, tabelas,
+diagramas autorais, descrições de candidatos e demais conteúdos educacionais
+originais deste projeto são licenciados sob a Creative Commons Attribution
+4.0 International (CC BY 4.0).
+
+Você pode compartilhar e adaptar esse conteúdo para qualquer finalidade,
+inclusive comercial, desde que atribua a autoria de forma adequada, forneça um
+link para a licença e indique se realizou alterações. A atribuição não pode
+sugerir que o autor endossa você, sua organização ou o uso realizado.
+
+Resumo da licença:
+https://creativecommons.org/licenses/by/4.0/deed.pt-br
+
+Texto jurídico oficial:
+https://creativecommons.org/licenses/by/4.0/legalcode.pt
+
+Atribuição sugerida:
+
+> Referência Técnica para Escolha de Distribuições Linux, por Diego
+> (Diego-Ch4m4X), licenciada sob CC BY 4.0, com indicação da edição utilizada
+> e das alterações realizadas.
+
+## 2. Código-fonte — MIT License
+
+O código HTML, CSS e JavaScript do Linux Distro Advisor, assim como scripts e
+outros trechos de software originais que venham a integrar este projeto, é
+licenciado sob a MIT License:
+
+MIT License
+
+Copyright (c) 2026 Diego (Diego-Ch4m4X)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## 3. Arquivos mistos
+
+Quando um mesmo arquivo contiver implementação e conteúdo editorial, como
+`quiz-linux.html`, a MIT License aplica-se à estrutura e à implementação de
+software; a CC BY 4.0 aplica-se ao texto editorial e às descrições autorais.
+
+Dados puramente factuais não recebem proteção autoral onde a legislação assim
+determinar, mas a seleção, organização e redação original do catálogo seguem o
+licenciamento de conteúdo acima.
+
+## 4. Materiais de terceiros
+
+Nomes de distribuições, produtos, marcas, logotipos, documentação externa,
+trechos citados e outros materiais de terceiros permanecem sujeitos aos
+direitos e às licenças de seus respectivos titulares. A inclusão de nomes,
+links ou referências não representa afiliação, certificação ou endosso.
+
+As licenças deste projeto não concedem direitos sobre marcas de terceiros nem
+sobre conteúdos externos apenas citados ou vinculados.
