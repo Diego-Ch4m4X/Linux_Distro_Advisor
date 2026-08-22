@@ -1,0 +1,866 @@
+<!doctype html>
+<!-- Código sob MIT; conteúdo editorial sob CC BY 4.0. Consulte ./LICENSE. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="description" content="Linux Distro Advisor: guia técnico em português + quiz para escolher distribuições Linux por workload, release, lifecycle, segurança, hardware e operação.">
+  <meta name="author" content="Diego-Ch4m4X">
+  <meta name="application-name" content="Linux Distro Advisor">
+  <meta name="theme-color" content="#07111f">
+  <link rel="canonical" href="https://diego-ch4m4x.github.io/Linux_Distro_Advisor/">
+
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Linux Distro Advisor">
+  <meta property="og:title" content="Linux Distro Advisor — escolha uma distribuição Linux por requisitos">
+  <meta property="og:description" content="Guia técnico + quiz interativo para comparar distribuições, edições, canais e appliances Linux por requisitos verificáveis — não por hype.">
+  <meta property="og:url" content="https://diego-ch4m4x.github.io/Linux_Distro_Advisor/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Linux Distro Advisor">
+  <meta name="twitter:description" content="Escolha por requisitos, não por hype. Guia técnico em PT-BR + quiz interativo.">
+
+  <title>Linux Distro Advisor | Guia para escolher distribuição Linux por requisitos</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://diego-ch4m4x.github.io/Linux_Distro_Advisor/#website",
+        "url": "https://diego-ch4m4x.github.io/Linux_Distro_Advisor/",
+        "name": "Linux Distro Advisor",
+        "description": "Referência técnica independente e quiz para escolha de distribuições Linux por requisitos.",
+        "inLanguage": "pt-BR"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://diego-ch4m4x.github.io/Linux_Distro_Advisor/#webpage",
+        "url": "https://diego-ch4m4x.github.io/Linux_Distro_Advisor/",
+        "name": "Linux Distro Advisor | Guia para escolher distribuição Linux por requisitos",
+        "description": "Linux Distro Advisor: guia técnico em português + quiz para escolher distribuições Linux por workload, release, lifecycle, segurança, hardware e operação.",
+        "inLanguage": "pt-BR",
+        "datePublished": "2026-08-15",
+        "dateModified": "2026-08-22",
+        "isPartOf": {
+          "@id": "https://diego-ch4m4x.github.io/Linux_Distro_Advisor/#website"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Diego-Ch4m4X"
+        },
+        "isAccessibleForFree": true
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: rgba(14, 28, 47, .86);
+      --panel-solid: #0e1c2f;
+      --panel-soft: #12243a;
+      --text: #eef5ff;
+      --muted: #9fb0c6;
+      --line: rgba(155, 180, 213, .18);
+      --accent: #55d6be;
+      --accent-2: #72a5ff;
+      --accent-3: #d08aff;
+      --shadow: 0 24px 70px rgba(0,0,0,.32);
+      --radius-xl: 28px;
+      --max: 1180px;
+    }
+    :root[data-theme="light"] {
+      --bg: #f3f7fc;
+      --panel: rgba(255,255,255,.90);
+      --panel-solid: #ffffff;
+      --panel-soft: #f7faff;
+      --text: #14233a;
+      --muted: #5f7189;
+      --line: rgba(34,60,95,.14);
+      --shadow: 0 22px 60px rgba(42,66,100,.14);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    :root { color-scheme: dark; }
+    :root[data-theme="light"] { color-scheme: light; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(85,214,190,.12), transparent 30rem),
+        radial-gradient(circle at 88% 5%, rgba(114,165,255,.16), transparent 32rem),
+        radial-gradient(circle at 72% 75%, rgba(208,138,255,.09), transparent 34rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--accent-2); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    .skip-link {
+      position: fixed; left: 14px; top: -80px; z-index: 1000;
+      padding: 10px 14px; border-radius: 10px; background: var(--panel-solid); color: var(--text);
+      border: 1px solid var(--line);
+    }
+    .skip-link:focus { top: 14px; }
+    .shell { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .topbar-wrap {
+      position: sticky; top: 0; z-index: 60;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+    }
+    .topbar {
+      min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; min-width: 0; }
+    .brand-logo {
+      width: 42px; height: 42px; display: grid; place-items: center; flex: 0 0 auto;
+      color: var(--text);
+      transition: color .18s ease, transform .18s ease;
+    }
+    .brand:hover .brand-logo { color: var(--accent); transform: translateY(-1px); }
+    .brand-logo-svg { display: block; width: 34px; height: 34px; }
+    .brand-copy strong { display: block; line-height: 1.15; }
+    .brand-copy small { display: block; color: var(--muted); font-size: .76rem; white-space: nowrap; }
+    .nav { display: flex; align-items: center; gap: 6px; }
+    .nav a, .theme-button {
+      border: 1px solid transparent; color: var(--muted); background: transparent; text-decoration: none;
+      border-radius: 11px; padding: 8px 10px; font: inherit; cursor: pointer;
+    }
+    .theme-button { min-width: 40px; min-height: 40px; display: inline-grid; place-items: center; }
+    .theme-icon { width: 18px; height: 18px; display: block; }
+    .theme-icon-moon { display: none; }
+    :root[data-theme="light"] .theme-icon-sun { display: none; }
+    :root[data-theme="light"] .theme-icon-moon { display: block; }
+    .nav a:not(.nav-cta):hover, .theme-button:hover {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(114,165,255,.07);
+    }
+    .nav .nav-cta { color: #07111f; background: var(--accent); border-color: transparent; font-weight: 800; }
+    .nav .nav-cta:hover { color: #07111f; border-color: transparent; background: #78e5d4; }
+    .hero { padding: 22px 0; }
+    .hero-grid { display: block; max-width: 1030px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 7px 11px;
+      border: 1px solid rgba(85,214,190,.26); border-radius: 999px; background: rgba(85,214,190,.08);
+      color: var(--accent); font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 1030px; margin-bottom: 18px; font-size: clamp(2.55rem, 6.3vw, 5.8rem); line-height: .96; letter-spacing: -.06em; }
+    h2 { font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.08; letter-spacing: -.04em; }
+    h3 { line-height: 1.2; letter-spacing: -.02em; }
+    .gradient-text {
+      background: linear-gradient(110deg, var(--accent), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding-right: .06em;
+      margin-right: -.06em;
+    }
+    .lead { max-width: 820px; color: var(--muted); font-size: clamp(1.03rem, 2vw, 1.22rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 11px 17px;
+      border: 1px solid var(--line); border-radius: 14px; background: var(--panel-soft); color: var(--text); text-decoration: none; font-weight: 850;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(114,165,255,.5); }
+    .btn-primary { color: #07111f; border-color: transparent; background: linear-gradient(110deg, var(--accent), #78e5d4); }
+    .btn-primary:hover { border-color: transparent; }
+    .btn-ghost { background: transparent; }
+    .hero-note { margin: 18px 0 0; color: var(--muted); font-size: .86rem; }
+    .hero-note strong { color: var(--text); }
+    .stats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin-top: 28px; }
+    .stat { padding: 17px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); }
+    .stat strong { display: block; font-size: 1.24rem; }
+    .stat span { color: var(--muted); font-size: .82rem; }
+    section { scroll-margin-top: 86px; }
+    .section { padding: 58px 0; }
+    .section-head { max-width: 820px; margin-bottom: 26px; }
+    .section-head p { color: var(--muted); }
+    #indice-guia .section-head { margin-bottom: 18px; }
+    .panel {
+      border: 1px solid var(--line); border-radius: var(--radius-xl); background: var(--panel); box-shadow: var(--shadow);
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    }
+    .panel-pad { padding: clamp(22px, 4vw, 42px); }
+    .callout {
+      padding: 18px 19px; border: 1px solid rgba(255,202,104,.25); border-radius: 15px; background: rgba(255,202,104,.07); color: var(--muted);
+    }
+    .callout strong { color: var(--text); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; }
+    .card { padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); }
+    .card h3 { margin-bottom: 7px; font-size: 1rem; }
+    .card p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+    .step-list { counter-reset: step; display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .step-list li { position: relative; padding: 13px 14px 13px 48px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.022); }
+    .step-list li::before {
+      counter-increment: step; content: counter(step); position: absolute; left: 13px; top: 12px; width: 24px; height: 24px; display: grid; place-items: center;
+      border-radius: 8px; background: rgba(85,214,190,.12); color: var(--accent); font-size: .78rem; font-weight: 900;
+    }
+    .diagram-wrap {
+      margin-top: 24px; overflow: auto; border: 1px solid var(--line); border-radius: 18px;
+      background: color-mix(in srgb, var(--panel-solid) 92%, transparent);
+    }
+    .diagram-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 16px 18px 0; }
+    .diagram-head strong { display: block; }
+    .diagram-head span { color: var(--muted); font-size: .82rem; }
+    .mermaid { min-width: 620px; padding: 18px; background: transparent; text-align: center; white-space: normal; }
+    .mermaid svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+    .mermaid .nodeLabel,
+    .mermaid .edgeLabel,
+    .mermaid .label,
+    .mermaid .cluster-label { color: var(--text) !important; }
+    .mermaid text { fill: var(--text) !important; }
+    .mermaid .edgeLabel rect,
+    .mermaid .labelBkg { fill: var(--panel-solid) !important; opacity: .96 !important; }
+    .mermaid-fallback {
+      min-width: 0;
+      padding: 18px;
+      color: var(--muted);
+      font: 600 .9rem/1.5 Inter, ui-sans-serif, system-ui, sans-serif;
+      text-align: center;
+      white-space: normal;
+    }
+    .diagram-note { padding: 0 18px 16px; color: var(--muted); font-size: .82rem; }
+    .toc { columns: 2; column-gap: 30px; margin: 0; padding-left: 20px; }
+    .toc li { break-inside: avoid; margin-bottom: 7px; }
+    .toc a { color: var(--muted); text-decoration: none; }
+    .toc a:hover { color: var(--accent-2); text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    th { color: var(--text); background: rgba(114,165,255,.07); }
+    td { color: var(--muted); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 15px; }
+    .tag { display: inline-block; margin: 2px 5px 2px 0; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .76rem; }
+    details.faq { border-bottom: 1px solid var(--line); }
+    details.faq:first-child { border-top: 1px solid var(--line); }
+    details.faq summary { cursor: pointer; padding: 17px 0; font-weight: 800; }
+    details.faq p { color: var(--muted); padding-bottom: 4px; }
+    .cta-panel {
+      padding: clamp(26px, 5vw, 54px); background:
+        radial-gradient(circle at 90% 10%, rgba(208,138,255,.18), transparent 22rem),
+        radial-gradient(circle at 10% 90%, rgba(85,214,190,.13), transparent 24rem),
+        var(--panel);
+    }
+    footer { padding: 40px 0 58px; color: var(--muted); font-size: .84rem; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; border-top: 1px solid var(--line); padding-top: 24px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .footer-links a { color: var(--muted); }
+    .back-top { position: fixed; right: 18px; bottom: 18px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 13px; background: var(--panel-solid); color: var(--text); text-decoration: none; box-shadow: var(--shadow); }
+    noscript .callout { margin-bottom: 30px; }
+    .brand:focus-visible, .nav a:focus-visible, .theme-button:focus-visible, .btn:focus-visible, .back-top:focus-visible, .toc a:focus-visible, details.faq summary:focus-visible {
+      outline: 3px solid rgba(114,165,255,.52);
+      outline-offset: 3px;
+    }
+    @media (max-width: 980px) {
+      .nav a:not(.nav-cta), .brand-copy small { display: none; }
+      .stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .grid-5 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 720px) {
+      .shell { width: min(var(--max), calc(100% - 20px)); }
+      .topbar { min-height: 60px; }
+      .brand-copy strong { font-size: .9rem; }
+      h1 { font-size: clamp(2.45rem, 14vw, 4.5rem); }
+      .section { padding: 46px 0; }
+      .grid-2, .grid-3, .grid-5, .stats { grid-template-columns: 1fr; }
+      .toc { columns: 1; }
+      .mermaid { min-width: 520px; }
+      .footer-grid { display: grid; }
+    }
+    @media (max-width: 520px) {
+      .brand-copy { display: none; }
+      .nav { gap: 3px; }
+      .nav .nav-cta { padding-inline: 9px; }
+      .hero-actions .btn { width: 100%; }
+      .back-top { right: 12px; bottom: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+    @media print {
+      :root, :root[data-theme="light"] {
+        --bg: #ffffff;
+        --panel: #ffffff;
+        --panel-solid: #ffffff;
+        --panel-soft: #ffffff;
+        --text: #111111;
+        --muted: #444444;
+        --line: #cccccc;
+        --shadow: none;
+      }
+      .topbar-wrap, .hero-actions, .theme-button, .back-top { display: none !important; }
+      body { background: #fff; color: #111; }
+      .panel, .card, .diagram-wrap { box-shadow: none; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <div class="topbar-wrap">
+    <header class="topbar shell">
+      <a class="brand" href="#topo" aria-label="Linux Distro Advisor — início">
+        <span class="brand-logo" aria-hidden="true"><svg class="brand-logo-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12.642 8.084c-.364.189-.79.42-1.242.42s-.81-.209-1.066-.413c-.13-.101-.234-.202-.313-.276c-.137-.108-.12-.259-.064-.254c.094.012.108.136.168.191c.08.075.18.172.302.269c.243.192.567.38.973.38s.878-.238 1.167-.4c.163-.092.371-.256.541-.381c.13-.095.125-.21.232-.198c.107.013.028.127-.122.258a3.4 3.4 0 0 1-.576.404"/><path fill="currentColor" d="M19.649 17.77c-.142-.16-.209-.456-.281-.771s-.153-.654-.411-.874l-.002-.001a1 1 0 0 0-.317-.192c.359-1.065.219-2.126-.145-3.084c-.444-1.177-1.222-2.202-1.815-2.903c-.664-.838-1.313-1.633-1.301-2.808c.021-1.793.197-5.118-2.958-5.122a5 5 0 0 0-.401.017c-3.526.283-2.59 4.008-2.643 5.255c-.064.912-.249 1.631-.877 2.523c-.736.876-1.774 2.295-2.266 3.771c-.232.697-.342 1.407-.241 2.08a2 2 0 0 0-.091.089c-.216.231-.376.511-.555.699c-.166.167-.403.229-.664.323s-.547.231-.721.565l-.001.002a1 1 0 0 0-.108.484c0 .154.023.311.046.461c.048.313.097.609.032.81c-.206.564-.232.954-.087 1.237s.444.409.783.479c.676.141 1.592.106 2.314.489l.062-.117l-.061.118c.773.404 1.557.547 2.182.405c.454-.104.821-.374 1.011-.789c.489-.002 1.025-.209 1.885-.256c.583-.047 1.312.207 2.149.16a1 1 0 0 0 .099.264c.324.649.928.946 1.571.896s1.329-.43 1.883-1.089l-.102-.085l.102.084c.527-.64 1.403-.905 1.984-1.255c.29-.175.525-.395.544-.713c.018-.318-.169-.675-.599-1.152m-7.79-11.708c-.003-.234.036-.435.126-.639s.201-.351.358-.47s.312-.174.494-.176h.009c.179 0 .332.053.489.167c.159.116.274.261.366.463a1.5 1.5 0 0 1 .141.636c.002.235-.038.435-.127.639a1.2 1.2 0 0 1-.18.299l-.074-.033q-.133-.056-.237-.096c-.104-.04-.124-.044-.181-.064c.041-.049.122-.108.151-.181a1 1 0 0 0 .072-.347l.002-.016a1 1 0 0 0-.05-.337c-.038-.113-.086-.195-.155-.263s-.139-.099-.223-.101h-.011a.32.32 0 0 0-.217.086a.6.6 0 0 0-.174.25a1 1 0 0 0-.072.348l-.001.015a1 1 0 0 0 .014.2a2.5 2.5 0 0 0-.507-.171a2 2 0 0 1-.014-.19zm-2.144.052c-.012-.202.009-.376.064-.556s.13-.311.238-.418a.52.52 0 0 1 .349-.168h.03c.118 0 .225.04.335.127a1 1 0 0 1 .284.389c.076.171.116.343.127.545v.002a1.5 1.5 0 0 1-.002.243l-.068.021c-.128.044-.23.093-.328.158a1 1 0 0 0 .003-.214v-.012a1 1 0 0 0-.068-.274a.5.5 0 0 0-.138-.203c-.052-.044-.1-.065-.153-.064l-.017.001c-.061.005-.11.034-.157.092a.54.54 0 0 0-.101.223a.9.9 0 0 0-.019.293l.001.012c.01.103.031.189.067.275a.53.53 0 0 0 .166.224c-.059.045-.098.078-.146.113l-.11.081a1 1 0 0 1-.229-.342a1.5 1.5 0 0 1-.128-.546zm.155 1.228c.187-.14.315-.234.402-.298c.086-.063.121-.086.148-.112h.001c.14-.132.362-.374.699-.49c.115-.04.245-.065.39-.066c.275-.001.608.089 1.01.348c.247.16.439.174.882.363h.001c.213.087.338.202.399.321q.09.18.012.387c-.103.273-.429.562-.887.705h-.001c-.224.072-.418.233-.647.364a1.45 1.45 0 0 1-.842.217a1.1 1.1 0 0 1-.374-.083a1.2 1.2 0 0 1-.27-.167c-.161-.131-.303-.295-.51-.416h-.002c-.333-.19-.515-.408-.573-.598c-.057-.189-.003-.351.162-.475m.131 13.018c-.047.623-.398.961-.938 1.085c-.539.123-1.27 0-1.999-.381h-.001c-.808-.427-1.768-.385-2.384-.514c-.308-.064-.509-.161-.602-.341s-.094-.494.102-1.028l.001-.002l.001-.002c.097-.299.025-.626-.021-.934c-.047-.307-.07-.586.034-.781l.001-.002c.135-.259.332-.352.576-.439c.245-.088.534-.157.764-.386l.001-.001l.001-.001c.212-.223.371-.503.557-.702c.157-.167.314-.279.551-.28h.009q.061 0 .132.011c.314.047.588.268.853.625l.762 1.389h.001c.202.423.631.89.994 1.365c.362.475.644.952.607 1.317zm-.063-1.01a7 7 0 0 0-.333-.469a14 14 0 0 0-.229-.293q.227 0 .384-.072a.5.5 0 0 0 .266-.274c.09-.242 0-.583-.288-.973c-.29-.39-.778-.83-1.494-1.269c-.527-.328-.821-.729-.959-1.165s-.119-.907-.013-1.373c.204-.894.729-1.762 1.063-2.308c.09-.066.032.123-.339.811c-.332.629-.953 2.081-.103 3.214a6.7 6.7 0 0 1 .538-2.398c.472-1.067 1.456-2.919 1.534-4.395c.041.029.18.123.241.158c.182.106.316.262.492.403c.177.142.396.264.729.283l.093.003c.343 0 .61-.112.833-.239c.242-.138.436-.292.618-.351h.001c.387-.122.694-.335.869-.585c.302 1.186 1.001 2.897 1.45 3.733c.239.443.715 1.385.92 2.52q.195-.005.427.054c.537-1.393-.455-2.892-.909-3.31c-.184-.178-.192-.258-.102-.254c.492.436 1.139 1.311 1.374 2.3c.107.451.13.925.016 1.393q.084.034.171.076c.862.42 1.181.785 1.027 1.283q-.076-.002-.148 0h-.014c.125-.395-.151-.687-.889-1.02c-.764-.336-1.373-.303-1.476.379a1 1 0 0 0-.017.109q-.085.03-.172.076c-.358.197-.555.553-.664.99s-.14.964-.17 1.558c-.019.298-.141.702-.266 1.129c-1.249.897-2.986 1.283-4.461.276m9.628.057c-.524.317-1.456.593-2.05 1.313c-.517.615-1.146.952-1.7.996c-.555.044-1.033-.186-1.315-.752v-.001l-.001-.003c-.175-.333-.102-.858.045-1.412s.359-1.123.388-1.585v-.001c.03-.592.063-1.11.163-1.509s.256-.669.533-.821l.039-.02c.031.513.285 1.036.734 1.149c.491.129 1.199-.292 1.498-.636l.175-.007c.262-.006.481.009.707.205v.001h.001c.173.146.255.423.326.733s.128.647.342.888h.001c.41.456.542.764.531.96c-.011.198-.153.344-.417.502"/><path fill="currentColor" d="M11.738 6.762c.015.048.093.04.138.063c.04.02.071.065.116.066c.042.001.107-.015.113-.057c.008-.056-.073-.091-.126-.111c-.067-.026-.153-.039-.216-.004c-.014.008-.03.027-.025.043m-.46 0c-.016.048-.094.04-.139.063c-.039.02-.071.065-.115.066c-.042.001-.108-.015-.114-.057c-.007-.056.074-.091.126-.111c.067-.026.153-.039.217-.004c.015.008.03.027.025.043"/></svg></span>
+        <span class="brand-copy"><strong>Linux Distro Advisor</strong><small>Escolha por requisitos, não por hype.</small></span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#guia">Guia</a>
+        <a href="#dimensoes">10 dimensões</a>
+        <a href="#metodo">Método</a>
+        <a href="#faq">FAQ</a>
+        <button class="theme-button" id="themeButton" type="button" aria-label="Alternar tema"><svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 2.5v2M12 19.5v2M4.57 4.57l1.42 1.42M18.01 18.01l1.42 1.42M2.5 12h2M19.5 12h2M4.57 19.43l1.42-1.42M18.01 5.99l1.42-1.42"/></svg><svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 14.7A8.5 8.5 0 0 1 9.3 3.6 8.6 8.6 0 1 0 20.4 14.7Z"/></svg></button>
+        <a class="nav-cta" href="./quiz.html">Abrir quiz →</a>
+      </nav>
+    </header>
+  </div>
+
+  <main id="conteudo">
+    <section class="hero" id="topo">
+      <div class="shell">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Referência independente • Guia 0.1.7 • Quiz 0.1.0 • PT-BR</div>
+            <h1>Escolha Linux por <span class="gradient-text">requisitos</span>, não por hype.</h1>
+            <p class="lead">O Linux Distro Advisor combina um guia técnico versionado com um quiz interativo para comparar distribuições, edições, canais e appliances Linux a partir do workload, lifecycle, segurança, hardware, operação e outros requisitos verificáveis.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="./quiz.html">Iniciar o Linux Distro Advisor →</a>
+              <a class="btn" href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md" target="_blank" rel="noopener">Ler referência técnica completa ↗</a>
+              <a class="btn btn-ghost" href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor" target="_blank" rel="noopener">Ver repositório ↗</a>
+            </div>
+            <p class="hero-note">Snapshot factual do guia: <strong>15/08/2026</strong>. O quiz é uma ferramenta de triagem técnica; não substitui documentação oficial, homologação, certificação, benchmark ou teste em laboratório.</p>
+          </div>
+        </div>
+        <div class="stats" aria-label="Resumo do projeto">
+          <div class="stat"><strong>95</strong><span>candidatos modelados — não apenas distros puras</span></div>
+          <div class="stat"><strong>2 modos</strong><span>triagem adaptativa e análise especialista</span></div>
+          <div class="stat"><strong>até 70</strong><span>etapas condicionais na análise especialista</span></div>
+          <div class="stat"><strong>1 + 2</strong><span>recomendação principal + alternativas e trade-offs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guia">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Resumo</div>
+          <h2>Não existe uma distribuição Linux universalmente “melhor”.</h2>
+          <p>Existe uma opção mais adequada a um conjunto explícito de requisitos, em determinado momento, para uma equipe e um workload específicos. A decisão tecnicamente defensável começa antes do nome da distribuição.</p>
+        </div>
+        <div class="grid-2">
+          <div class="panel panel-pad">
+            <h3>Sete perguntas antes da escolha</h3>
+            <ol class="step-list">
+              <li>Qual é o workload e o ambiente de execução?</li>
+              <li>Quais requisitos são eliminatórios e quais são preferências?</li>
+              <li>Qual lifecycle e política de segurança são necessários?</li>
+              <li>Hardware, firmware, drivers e aplicações são compatíveis?</li>
+              <li>Como a equipe vai atualizar, observar e operar o ambiente?</li>
+              <li>Que evidências serão obtidas em laboratório e piloto?</li>
+              <li>Qual é o plano de atualização, recuperação e saída?</li>
+            </ol>
+          </div>
+          <div class="panel panel-pad">
+            <h3>O que este projeto entrega</h3>
+            <p>O guia fornece vocabulário, critérios e um método auditável. O quiz aplica uma <strong>heurística documentada e versionada</strong> sobre o mesmo modelo e devolve uma recomendação principal, duas alternativas e os trade-offs relevantes.</p>
+            <div class="callout"><strong>Limite importante:</strong> o índice do quiz mede aderência relativa às respostas. Não é probabilidade, qualidade absoluta, benchmark, certificação ou aprovação de produção.</div>
+          </div>
+        </div>
+
+        <figure class="diagram-wrap" aria-labelledby="decisionDiagramTitle">
+          <figcaption class="diagram-head"><div><strong id="decisionDiagramTitle">Fluxo de decisão auditável</strong><span>Do workload ao registro de decisão.</span></div></figcaption>
+          <pre class="mermaid">
+flowchart LR
+    accTitle: Fluxo de decisão auditável para escolha de distribuição Linux
+    accDescr: O fluxo parte do workload, separa requisitos eliminatórios e preferências, elimina incompatíveis, pontua preferências, analisa trade-offs, valida documentação e laboratório e registra a decisão.
+    A[Definir workload] --> B[Separar eliminatórios e preferências]
+    B --> C[Eliminar incompatíveis]
+    C --> D[Pontuar preferências]
+    D --> E[Analisar trade-offs]
+    E --> F[Validar documentação e matriz]
+    F --> G[Laboratório e piloto]
+    G --> H[Registrar decisão e plano de saída]
+          </pre>
+          <div class="diagram-note">O diagrama resume a seção de método do README. O texto permanece a referência; o gráfico é uma visualização complementar.</div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="dimensoes">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Modelo mental</div>
+          <h2>A classificação é multidimensional.</h2>
+          <p>Rolling, LTS, Stable, Atomic, image-based e enterprise não são rótulos concorrentes do mesmo eixo. O projeto organiza a análise em dez dimensões independentes.</p>
+        </div>
+        <div class="grid-5">
+          <div class="card"><h3>Release</h3><p>Como a instalação evolui entre gerações ou ao longo do tempo.</p></div>
+          <div class="card"><h3>Cadência</h3><p>Com que frequência releases, pacotes, snapshots ou imagens são promovidos.</p></div>
+          <div class="card"><h3>Atualidade</h3><p>Quão próximas as versões ficam dos respectivos projetos upstream.</p></div>
+          <div class="card"><h3>Lifecycle</h3><p>Por quanto tempo e em qual escopo há manutenção.</p></div>
+          <div class="card"><h3>Compatibilidade</h3><p>Quais contratos técnicos precisam ser preservados: API, ABI, kABI e outros.</p></div>
+          <div class="card"><h3>Mutabilidade</h3><p>Quais partes do sistema podem ser alteradas diretamente no host.</p></div>
+          <div class="card"><h3>Transação</h3><p>Como mudanças são preparadas, ativadas e eventualmente revertidas.</p></div>
+          <div class="card"><h3>Declaração</h3><p>Se o operador descreve ações ou o estado desejado.</p></div>
+          <div class="card"><h3>Proveniência</h3><p>Quem construiu, assinou, distribuiu e mantém o software.</p></div>
+          <div class="card"><h3>Operação</h3><p>Como o ambiente é provisionado, atualizado, observado e governado.</p></div>
+        </div>
+
+        <figure class="diagram-wrap" aria-labelledby="mindmapTitle">
+          <figcaption class="diagram-head"><div><strong id="mindmapTitle">Mapa mental das 10 dimensões</strong><span>Uma mesma distribuição pode combinar propriedades diferentes em cada eixo.</span></div></figcaption>
+          <pre class="mermaid">
+mindmap
+  root((Escolha Linux))
+    Evolução
+      Release
+      Cadência
+      Atualidade
+      Lifecycle
+    Plataforma
+      Compatibilidade
+      Mutabilidade
+      Transação
+      Declaração
+    Governança
+      Proveniência
+      Operação
+          </pre>
+          <div class="diagram-note">Exemplo: uma edição pode ser Fixed Release, leading edge, ter lifecycle curto, usar deployment atômico e privilegiar aplicações em Flatpak — sem contradição.</div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="release">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Release e atualização</div>
+          <h2>Fixed, Rolling, Stream e mecanismos de atualização respondem perguntas diferentes.</h2>
+          <p>O modelo de release descreve como o produto evolui. Atomicidade, transação, image-based, LTS e enterprise pertencem a outros eixos e podem coexistir.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Conceito</th><th>Pergunta que responde</th><th>Exemplos de leitura</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Fixed Release</strong></td><td>Há gerações identificáveis e uma transição lógica entre elas?</td><td>Debian Stable, Ubuntu, Fedora estável, RHEL.</td></tr>
+              <tr><td><strong>Rolling Release</strong></td><td>A instalação acompanha um fluxo contínuo sem upgrade periódico N → N+1?</td><td>Arch Linux, openSUSE Tumbleweed, Void Linux.</td></tr>
+              <tr><td><strong>Stream / Continuous Delivery</strong></td><td>O produto evolui por streams, canais ou imagens contínuas?</td><td>Casos em que Fixed/Rolling clássico descreve mal a operação.</td></tr>
+              <tr><td><strong>LTS</strong></td><td>Qual objeto recebe manutenção prolongada e por quanto tempo?</td><td>Release, kernel ou outro componente específico.</td></tr>
+              <tr><td><strong>Atomic / Transactional</strong></td><td>Como a mudança é preparada e ativada?</td><td>Deployment, snapshot, A/B, generation ou mecanismos equivalentes.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="diagram-wrap" aria-labelledby="releaseDiagramTitle">
+          <figcaption class="diagram-head"><div><strong id="releaseDiagramTitle">Modelos de evolução — visão conceitual</strong><span>O objetivo é separar o eixo de release do mecanismo de atualização.</span></div></figcaption>
+          <pre class="mermaid">
+flowchart TB
+    accTitle: Modelos de evolução e mecanismos de atualização
+    accDescr: O diagrama separa a forma como o produto evolui entre Fixed, Rolling e Stream da forma como uma mudança é ativada por pacotes, deployment atômico, snapshot transacional ou A/B.
+    X[Como o produto evolui?]
+    X --> F[Fixed Release]
+    X --> R[Rolling Release]
+    X --> S[Stream / Continuous Delivery]
+    F --> F1[Gerações N → N+1]
+    R --> R1[Fluxo contínuo]
+    S --> S1[Streams / canais / imagens]
+
+    Y[Como a mudança é ativada?]
+    Y --> P[Pacotes tradicionais]
+    Y --> A[Deployment atômico]
+    Y --> T[Snapshot transacional]
+    Y --> B[A/B ou generation]
+          </pre>
+          <div class="diagram-note">Uma opção pode combinar, por exemplo, <strong>Fixed Release + atualização atômica</strong>. Atomic não significa Rolling.</div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="cobertura">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Cobertura técnica</div>
+          <h2>O guia vai além de “desktop bonito” ou “qual distro é mais fácil”.</h2>
+          <p>A seleção é tratada como uma decisão de plataforma e operação. O README completo aprofunda os tópicos abaixo e aponta fontes primárias.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><h3>Release, lifecycle e backports</h3><p>Fixed, Rolling, híbridos, LTS, enterprise, advisories e leitura correta de vulnerabilidades.</p></div>
+          <div class="card"><h3>API, ABI e kABI</h3><p>Contratos de compatibilidade para aplicações, bibliotecas, drivers e módulos externos.</p></div>
+          <div class="card"><h3>Pacotes e proveniência</h3><p>Formato, gerenciador, repositório, assinatura, AUR/PPA/COPR/OBS, Flatpak, Snap e imagens OCI.</p></div>
+          <div class="card"><h3>Desktop e gráficos</h3><p>DE, display manager, Wayland/X11/XWayland, Mesa, Vulkan, HDR, VRR, GPU híbrida e compute.</p></div>
+          <div class="card"><h3>Hardware e firmware</h3><p>Arquitetura, BIOS/UEFI, microcode, fwupd/LVFS, drivers, firmware e software não livre.</p></div>
+          <div class="card"><h3>Segurança e compliance</h3><p>Patching, hardening, SELinux/AppArmor, Secure Boot, FIPS, CIS, STIG, Common Criteria e live patching.</p></div>
+          <div class="card"><h3>Storage e recuperação</h3><p>Filesystem, LVM, LUKS, snapshots, RAID, integridade, backup, restore, RTO e RPO.</p></div>
+          <div class="card"><h3>Virtualização e cloud-native</h3><p>KVM/QEMU, containers, Kubernetes, HCI, hosts image-based e compatibilidade de runtime.</p></div>
+          <div class="card"><h3>Rede e dataplane</h3><p>Interfaces, firewall, VPN, VLAN/bridge/bond, VRF, BGP/OSPF, EVPN/VXLAN e aceleração.</p></div>
+          <div class="card"><h3>Identidade</h3><p>AD, FreeIPA/IdM, LDAP, Kerberos, SSSD, PAM, políticas e autenticação corporativa.</p></div>
+          <div class="card"><h3>Frota e automação</h3><p>Provisionamento, cloud-init/Ignition, PXE, Ansible/Salt, gestão centralizada, GitOps e air-gap.</p></div>
+          <div class="card"><h3>Observabilidade e continuidade</h3><p>Logs, métricas, traces, eBPF, telemetria, HA/failover, fencing, quorum e rolling maintenance.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Linux Distro Advisor</div>
+          <h2>O quiz é uma triagem técnica, não um “teste de personalidade”.</h2>
+          <p>O catálogo modela <strong>95 candidatos</strong>: distribuições, edições, canais, sistemas image-based, network operating systems e appliances Linux. O algoritmo combina requisitos eliminatórios, preferências ponderadas e regras cruzadas.</p>
+        </div>
+        <div class="grid-2">
+          <div class="panel panel-pad">
+            <h3>Triagem</h3>
+            <p>Subconjunto adaptativo de perguntas para estudo, desktop pessoal e formação de shortlist. Perguntas que deixam de ser pertinentes são ocultadas e não contam como respondidas.</p>
+            <span class="tag">adaptativa</span><span class="tag">shortlist</span><span class="tag">trade-offs</span>
+          </div>
+          <div class="panel panel-pad">
+            <h3>Análise especialista</h3>
+            <p>Até 70 etapas condicionais para cenários com produção, frota, compliance, infraestrutura, storage, rede, identidade, continuidade e outros requisitos avançados.</p>
+            <span class="tag">até 70 etapas</span><span class="tag">requisitos eliminatórios</span><span class="tag">infraestrutura</span>
+          </div>
+        </div>
+
+        <figure class="diagram-wrap" aria-labelledby="quizPipelineTitle">
+          <figcaption class="diagram-head"><div><strong id="quizPipelineTitle">Pipeline de recomendação</strong><span>Representação do contrato documentado no README.</span></div></figcaption>
+          <pre class="mermaid">
+flowchart TD
+    accTitle: Pipeline do Linux Distro Advisor
+    accDescr: Respostas são normalizadas, filtradas por contexto e requisitos eliminatórios, depois ponderadas para produzir ranking relativo, motivos, trade-offs e alternativas, com fallback explícito em caso de conflito total.
+    A[Respostas] --> B[Normalização e remoção de respostas ocultas]
+    B --> C[Elegibilidade por contexto]
+    C --> D[Requisitos eliminatórios]
+    D --> E[Preferências ponderadas e regras cruzadas]
+    E --> F[Ranking relativo]
+    F --> G[Motivos]
+    F --> H[Trade-offs]
+    F --> I[Alternativas próximas]
+    D -->|conflito total| J[Melhor aproximação + conflito explícito]
+          </pre>
+          <div class="diagram-note">Se nenhum candidato atender todos os requisitos eliminatórios, o quiz declara o conflito e mostra uma melhor aproximação entre os candidatos ainda pertinentes ao contexto.</div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="camadas">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Arquitetura de decisão</div>
+          <h2>Escolher a distro é escolher uma combinação de camadas.</h2>
+          <p>Um nome de distribuição não resolve sozinho segurança, storage, aplicações, firmware, rede, identidade ou operação. Esses componentes possuem ciclos e responsabilidades próprias.</p>
+        </div>
+        <figure class="diagram-wrap" aria-labelledby="layersTitle">
+          <figcaption class="diagram-head"><div><strong id="layersTitle">Camadas que precisam ser validadas</strong><span>A distribuição fornece a plataforma; workload e componentes externos mantêm lifecycles próprios.</span></div></figcaption>
+          <pre class="mermaid">
+flowchart TB
+    accTitle: Camadas técnicas avaliadas na escolha de uma distribuição Linux
+    accDescr: Aplicações e workloads dependem de containers e software de terceiros, userspace, kernel, drivers, firmware e hardware, enquanto segurança e operação atravessam e governam essas camadas.
+    W[Aplicações e workloads] --> A[Containers / runtimes / software de terceiros]
+    A --> U[Userspace da distribuição]
+    U --> K[Kernel Linux]
+    K --> D[Drivers e firmware]
+    D --> H[Hardware / plataforma]
+
+    S[Segurança e compliance] -. atravessa .-> W
+    S -. atravessa .-> U
+    S -. atravessa .-> K
+    O[Operação, observabilidade e continuidade] -. governa .-> W
+    O -. governa .-> U
+    O -. governa .-> H
+          </pre>
+          <div class="diagram-note">Lifecycle do sistema operacional não prolonga automaticamente aplicações externas, imagens de container, plugins, firmware ou outros componentes.</div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="leitura">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Como usar</div>
+          <h2>Você não precisa ler o guia inteiro em ordem.</h2>
+          <p>O README 0.1.7 organiza trilhas diferentes para quem está começando, para profissionais técnicos e para quem precisa auditar uma decisão.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Perfil</th><th>Trilha sugerida</th><th>Objetivo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Iniciante absoluto</strong></td><td>Resumo → fundamentos → modelo mental → release/lifecycle → método → perfis → erros comuns → glossário</td><td>Formar conceitos antes do vocabulário especializado.</td></tr>
+              <tr><td><strong>Profissional técnico</strong></td><td>Índice → seção do workload → tabela-mestre → lifecycle/backports/ABI → método → snapshot → homologação → referências</td><td>Consultar critérios e riscos sem reler fundamentos conhecidos.</td></tr>
+              <tr><td><strong>Homologação / arquitetura / segurança</strong></td><td>Lifecycle → vulnerabilidades → compatibilidade → hardware → segurança → storage/infra → método → snapshot → homologação → fontes</td><td>Produzir decisão rastreável e sustentada por evidências.</td></tr>
+              <tr><td><strong>Auditoria do Advisor</strong></td><td>Modelo mental → release → método → snapshot → metodologia → homologação → referências</td><td>Entender algoritmo, recorte temporal e limites do recomendador.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="indice-guia">
+      <div class="shell">
+        <div class="panel panel-pad">
+          <div class="section-head">
+            <div class="eyebrow">Índice do README</div>
+            <h2>Principais áreas da referência técnica</h2>
+            <p>Esta página funciona como porta de entrada. O conteúdo canônico e detalhado continua no README do repositório.</p>
+          </div>
+          <ol class="toc">
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#00-conceitos-fundamentais" target="_blank" rel="noopener">Conceitos fundamentais</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#01-modelo-mental" target="_blank" rel="noopener">Modelo mental multidimensional</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#02-modelo-de-release-e-cadencia" target="_blank" rel="noopener">Release e cadência</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#03-lifecycle-lts-e-suporte-empresarial" target="_blank" rel="noopener">Lifecycle, LTS e enterprise</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#05-backports-erratas-e-leitura-de-vulnerabilidades" target="_blank" rel="noopener">Backports e vulnerabilidades</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#06-api-abi-e-kabi" target="_blank" rel="noopener">API, ABI e kABI</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#07-pacote-formato-gerenciador-repositorio-e-origem" target="_blank" rel="noopener">Pacotes, repositórios e proveniência</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#08-tradicional-imutavel-atomico-image-based-e-declarativo" target="_blank" rel="noopener">Tradicional, imutável, atômico e declarativo</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#09-desktop-e-pilha-grafica" target="_blank" rel="noopener">Desktop e pilha gráfica</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#10-hardware-firmware-e-software-nao-livre" target="_blank" rel="noopener">Hardware, firmware e software não livre</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#11-seguranca-hardening-compliance-e-certificacao" target="_blank" rel="noopener">Segurança, hardening e compliance</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#12-storage-criptografia-recuperacao-e-backup" target="_blank" rel="noopener">Storage, criptografia e backup</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#13-virtualizacao-containers-e-cloud-native" target="_blank" rel="noopener">Virtualização, containers e cloud-native</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#14-rede-identidade-frota-observabilidade-e-continuidade" target="_blank" rel="noopener">Rede, identidade, frota e observabilidade</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#15-metodo-de-decisao-auditavel" target="_blank" rel="noopener">Método de decisão auditável</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#16-perfis-de-referencia" target="_blank" rel="noopener">Perfis de referência</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#17-recorte-temporal-e-versionamento" target="_blank" rel="noopener">Recorte temporal e versionamento</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#19-metodologia-do-linux-distro-advisor" target="_blank" rel="noopener">Metodologia do Advisor</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#20-checklist-de-homologacao" target="_blank" rel="noopener">Checklist de homologação</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#23-glossario" target="_blank" rel="noopener">Glossário</a></li>
+            <li><a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md#24-referencias-primarias" target="_blank" rel="noopener">Referências primárias e complementares</a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="transparencia">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Transparência</div>
+          <h2>O projeto documenta os próprios limites.</h2>
+          <p>“Referência” significa conteúdo independente, versionado, auditável e sustentado por fontes primárias. Não significa documentação oficial dos projetos ou fornecedores citados.</p>
+        </div>
+        <div class="grid-2">
+          <div class="panel panel-pad">
+            <h3>Limitações conhecidas</h3>
+            <ul>
+              <li>o catálogo é curado, não exaustivo;</li>
+              <li>pesos são heurísticos e versionados;</li>
+              <li>suporte real varia por arquitetura, região, contrato e hardware;</li>
+              <li>o quiz não executa detecção de hardware;</li>
+              <li>certificações precisam ser verificadas no documento formal;</li>
+              <li>fontes e versões envelhecem após o snapshot.</li>
+            </ul>
+          </div>
+          <div class="panel panel-pad">
+            <h3>Fato ≠ inferência editorial</h3>
+            <p>O guia diferencia fato declarado por fonte, contrato formal, comportamento observado em teste e inferência editorial. Uma recomendação do Advisor não deve ser apresentada como declaração do fornecedor.</p>
+            <div class="callout"><strong>Produção:</strong> valide documentação upstream, matriz de compatibilidade, hardware, aplicação, suporte, segurança, backup, rollback e critérios da organização.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">FAQ</div>
+          <h2>Perguntas comuns antes de escolher uma distro</h2>
+        </div>
+        <div class="panel panel-pad">
+          <details class="faq"><summary>Qual é a melhor distribuição Linux?</summary><p>Não existe uma resposta universal. A melhor escolha depende do workload, requisitos eliminatórios, lifecycle, segurança, hardware, software e modelo operacional. O Advisor ajuda a estruturar essa triagem.</p></details>
+          <details class="faq"><summary>O Advisor realmente “decide” qual distro devo instalar?</summary><p>Não. Ele ordena aderência relativa com base nas respostas e expõe motivos, alternativas e trade-offs. A decisão final deve ser validada com documentação oficial e testes.</p></details>
+          <details class="faq"><summary>São 95 distribuições Linux?</summary><p>Não exatamente. São 95 candidatos modelados: distribuições, edições, canais, sistemas image-based, network operating systems e appliances Linux.</p></details>
+          <details class="faq"><summary>Rolling Release é menos estável?</summary><p>Rolling descreve evolução contínua da instalação; não é um score de qualidade. O comportamento real depende de curadoria, testes, cadência, upstreams e operação.</p></details>
+          <details class="faq"><summary>LTS é o oposto de Rolling Release?</summary><p>Não. LTS é uma política de manutenção prolongada para um objeto específico; Rolling descreve modelo de evolução. São dimensões diferentes.</p></details>
+          <details class="faq"><summary>Atomic significa Rolling?</summary><p>Não. Atomic/Transactional descreve como mudanças são preparadas e ativadas. Fixed/Rolling descreve como o produto evolui entre gerações ou ao longo do tempo.</p></details>
+          <details class="faq"><summary>O quiz substitui homologação ou benchmark?</summary><p>Não. O resultado é triagem técnica. Produção continua exigindo validação do hardware, drivers, aplicações, compliance, suporte, backup, rollback e critérios do ambiente.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="panel cta-panel">
+          <div class="eyebrow">Próximo passo</div>
+          <h2>Transforme requisitos em uma shortlist explicável.</h2>
+          <p class="lead">Use o quiz para obter uma recomendação principal, duas alternativas e os trade-offs da decisão. Depois, volte ao guia para auditar os critérios e validar o resultado.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./quiz.html">Abrir o quiz →</a>
+            <a class="btn" href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md" target="_blank" rel="noopener">Abrir guia completo ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>
+        <strong>Linux Distro Advisor</strong><br>
+        Guia técnico independente • conteúdo editorial CC BY 4.0 • código MIT<br>
+        Snapshot factual: 2026-08-15 • Guia 0.1.7 • revisão editorial: 2026-08-22
+      </div>
+      <div class="footer-links">
+        <a href="./quiz.html">Quiz</a>
+        <a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/README.md" target="_blank" rel="noopener">README</a>
+        <a href="https://github.com/Diego-Ch4m4X/Linux_Distro_Advisor/blob/main/LICENSE" target="_blank" rel="noopener">Licença</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="back-top" href="#topo" aria-label="Voltar ao topo">↑</a>
+
+  <noscript>
+    <div class="shell callout"><strong>JavaScript desativado:</strong> o conteúdo textual e os links continuam disponíveis. Os diagramas Mermaid não serão renderizados graficamente.</div>
+  </noscript>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const button = document.getElementById('themeButton');
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      let saved = null;
+
+      try {
+        saved = localStorage.getItem('linux-distro-advisor-theme') || localStorage.getItem('lda-theme');
+        if (saved === 'light' || saved === 'dark') localStorage.setItem('linux-distro-advisor-theme', saved);
+      } catch (_) {}
+
+      const systemTheme = window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      const initialTheme = saved === 'light' || saved === 'dark' ? saved : systemTheme;
+
+      function applyTheme(theme, persist = false) {
+        root.dataset.theme = theme;
+        if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#f3f7fc' : '#07111f');
+        if (button) {
+          const targetTheme = theme === 'light' ? 'escuro' : 'claro';
+          button.setAttribute('aria-label', `Ativar tema ${targetTheme}`);
+          button.setAttribute('title', `Ativar tema ${targetTheme}`);
+        }
+        if (persist) {
+          try { localStorage.setItem('linux-distro-advisor-theme', theme); } catch (_) {}
+        }
+      }
+
+      applyTheme(initialTheme);
+
+      button?.addEventListener('click', () => {
+        const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+        applyTheme(next, true);
+        window.dispatchEvent(new CustomEvent('linux-theme-change', { detail: { theme: next } }));
+      });
+    }());
+  </script>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.17.0/dist/mermaid.esm.min.mjs';
+
+    const diagramElements = Array.from(document.querySelectorAll('.mermaid'));
+    const diagramSources = diagramElements.map(element => element.textContent.trim());
+    let renderGeneration = 0;
+
+    function currentTheme() {
+      return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+    }
+
+    function mermaidThemeVariables(theme) {
+      const light = theme === 'light';
+      const text = light ? '#14233a' : '#eef5ff';
+      const panel = light ? '#ffffff' : '#0e1c2f';
+      const primary = light ? '#eaf2ff' : '#12243a';
+      const secondary = light ? '#e7f8f4' : '#17263b';
+      const tertiary = light ? '#f4eaff' : '#211d38';
+      const border = light ? '#6685b3' : '#55d6be';
+      const line = light ? '#5d7fb8' : '#72a5ff';
+
+      return {
+        background: panel,
+        primaryColor: primary,
+        primaryTextColor: text,
+        primaryBorderColor: border,
+        secondaryColor: secondary,
+        secondaryTextColor: text,
+        secondaryBorderColor: border,
+        tertiaryColor: tertiary,
+        tertiaryTextColor: text,
+        tertiaryBorderColor: border,
+        mainBkg: primary,
+        nodeBorder: border,
+        clusterBkg: panel,
+        clusterBorder: light ? '#b7c6d9' : '#40526a',
+        lineColor: line,
+        textColor: text,
+        edgeLabelBackground: panel,
+        labelBackground: panel,
+        fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+        cScale0: light ? '#dff6f1' : '#163b3b',
+        cScale1: light ? '#e6efff' : '#1b3150',
+        cScale2: light ? '#f2e7ff' : '#392553',
+        cScale3: light ? '#edf2f6' : '#2a3942',
+        cScale4: light ? '#fff2d9' : '#4a391f',
+        cScale5: light ? '#e8f5e9' : '#24402d',
+        cScale6: light ? '#fce8ee' : '#4a2432',
+        cScale7: light ? '#e8f2f7' : '#233947',
+        cScaleLabel0: text,
+        cScaleLabel1: text,
+        cScaleLabel2: text,
+        cScaleLabel3: text,
+        cScaleLabel4: text,
+        cScaleLabel5: text,
+        cScaleLabel6: text,
+        cScaleLabel7: text
+      };
+    }
+
+    async function renderMermaidDiagrams(theme = currentTheme()) {
+      const generation = ++renderGeneration;
+
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'strict',
+        suppressErrorRendering: true,
+        theme: 'base',
+        flowchart: { useMaxWidth: true, htmlLabels: true },
+        mindmap: { useMaxWidth: true },
+        themeVariables: mermaidThemeVariables(theme)
+      });
+
+      for (let index = 0; index < diagramElements.length; index += 1) {
+        const element = diagramElements[index];
+        const source = diagramSources[index];
+        try {
+          const isValid = await mermaid.parse(source, { suppressErrors: true });
+          if (!isValid) throw new Error('Diagrama Mermaid inválido.');
+          const { svg, bindFunctions } = await mermaid.render(`lda-mermaid-${generation}-${index}`, source);
+          if (generation !== renderGeneration) return;
+          element.classList.remove('mermaid-fallback');
+          element.innerHTML = svg;
+          element.dataset.renderedTheme = theme;
+          if (typeof bindFunctions === 'function') bindFunctions(element);
+        } catch (error) {
+          if (generation !== renderGeneration) return;
+          element.textContent = 'Visualização indisponível. Consulte a explicação textual desta seção.';
+          element.classList.add('mermaid-fallback');
+          element.dataset.renderedTheme = 'error';
+          console.error('Falha ao renderizar diagrama Mermaid:', error);
+        }
+      }
+    }
+
+    renderMermaidDiagrams();
+    window.addEventListener('linux-theme-change', event => {
+      renderMermaidDiagrams(event.detail?.theme || currentTheme());
+    });
+  </script>
+</body>
+</html>
