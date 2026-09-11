@@ -10,8 +10,9 @@
   <meta name="author" content="Diego-Ch4m4X">
   <meta name="application-name" content="Linux Distro Advisor">
   <meta name="theme-color" content="#07111f">
-  <meta name="version" content="0.1.0">
+  <meta name="version" content="0.3.0">
   <link rel="canonical" href="https://diego-ch4m4x.github.io/Linux_Distro_Advisor/quiz.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%20role%3D%22img%22%20aria-label%3D%22Linux%20Distro%20Advisor%22%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2211%22%20fill%3D%22%2307111f%22%2F%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%2217%22%20fill%3D%22%230e1c2f%22%20stroke%3D%22%2355d6be%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20fill%3D%22%23eef5ff%22%20d%3D%22M25.285%2016.168c-.728.378-1.58.84-2.484.84s-1.62-.418-2.132-.826c-.26-.202-.468-.404-.626-.552c-.274-.216-.24-.518-.128-.508c.188.024.216.272.336.382c.16.15.36.344.604.538c.486.384%201.134.76%201.946.76s1.756-.476%202.334-.8c.326-.184.742-.512%201.082-.762c.26-.19.25-.42.464-.396c.214.026.056.254-.244.516a6.8%206.8%200%200%201-1.152.808%22%2F%3E%3Cpath%20fill%3D%22%23eef5ff%22%20d%3D%22M39.298%2035.54c-.284-.32-.418-.912-.562-1.542s-.306-1.308-.822-1.748l-.004-.002a2%202%200%200%200-.634-.384c.718-2.13.438-4.252-.29-6.168c-.888-2.354-2.444-4.404-3.63-5.806c-1.328-1.676-2.626-3.266-2.602-5.616c.042-3.586.394-10.236-5.916-10.244a10%2010%200%200%200-.802.034c-7.052.566-5.18%208.016-5.286%2010.51c-.128%201.824-.498%203.262-1.754%205.046c-1.472%201.752-3.548%204.59-4.532%207.542c-.464%201.394-.684%202.814-.482%204.16a4%204%200%200%200-.182.178c-.432.462-.752%201.022-1.11%201.398c-.332.334-.806.458-1.328.646s-1.094.462-1.442%201.13l-.002.004a2%202%200%200%200-.216.968c0%20.308.046.622.092.922c.096.626.194%201.218.064%201.62c-.412%201.128-.464%201.908-.174%202.474s.888.818%201.566.958c1.352.282%203.184.212%204.628.978l.124-.234l-.122.236c1.546.808%203.114%201.094%204.364.81c.908-.208%201.642-.748%202.022-1.578c.978-.004%202.05-.418%203.77-.512c1.166-.094%202.624.414%204.298.32a2%202%200%200%200%20.198.528c.648%201.298%201.856%201.892%203.142%201.792s2.658-.86%203.766-2.178l-.204-.17l.204.168c1.054-1.28%202.806-1.81%203.968-2.51c.58-.35%201.05-.79%201.088-1.426c.036-.636-.338-1.35-1.198-2.304z%22%2F%3E%3C%2Fsvg%3E" type="image/svg+xml">
 
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
@@ -22,6 +23,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Quiz para escolher distribuição Linux | Linux Distro Advisor">
   <meta name="twitter:description" content="Triagem técnica por requisitos, com recomendação principal, alternativas e trade-offs.">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://diego-ch4m4x.github.io/Linux_Distro_Advisor/#website","url":"https://diego-ch4m4x.github.io/Linux_Distro_Advisor/","name":"Linux Distro Advisor","description":"Referência técnica independente e quiz para escolha de distribuições Linux por requisitos.","inLanguage":"pt-BR"},{"@type":"WebPage","@id":"https://diego-ch4m4x.github.io/Linux_Distro_Advisor/quiz.html#webpage","url":"https://diego-ch4m4x.github.io/Linux_Distro_Advisor/quiz.html","name":"Quiz para escolher distribuição Linux | Linux Distro Advisor","description":"Quiz interativo em português para comparar distribuições Linux por requisitos verificáveis e receber uma shortlist explicável.","inLanguage":"pt-BR","isPartOf":{"@id":"https://diego-ch4m4x.github.io/Linux_Distro_Advisor/#website"},"author":{"@type":"Person","name":"Diego-Ch4m4X"},"isAccessibleForFree":true}]}</script>
 
   <title>Quiz para escolher distribuição Linux | Linux Distro Advisor</title>
   <style>
@@ -756,6 +759,28 @@
       .back-top { right: 12px; bottom: 12px; }
     }
 
+    @media (max-width: 380px) {
+      .shell { width: min(100% - 16px, var(--max)); }
+      .topbar { gap: 8px; margin-bottom: 16px; }
+      .brand { gap: 8px; }
+      .brand-logo { width: 40px; height: 40px; }
+      .brand-logo-svg { width: 31px; height: 31px; }
+      .brand-title { font-size: .9rem; }
+      .brand-subtitle { display: none; }
+      .topbar-actions { gap: 6px; }
+      .home-link, .icon-button { width: 40px; height: 40px; min-height: 40px; }
+      .hero { padding: 22px 16px; }
+      h1 { font-size: clamp(2rem, 13vw, 2.65rem); }
+      .hero-actions { align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .mode-option { padding: 12px; }
+      .quiz-card, .method-card { padding: 20px 14px; }
+      .method-item { padding: 14px; }
+      .notice { padding: 14px; }
+      .result-actions { padding-inline: 14px; }
+      .toast { max-width: calc(100% - 20px); text-align: center; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
     }
@@ -787,12 +812,10 @@
     </header>
 
     <section class="hero" id="intro">
-      <div class="eyebrow">Referência independente • Guia 0.1.7 • Quiz <span data-app-version>0.1.0</span> • PT-BR</div>
+      <div class="eyebrow">Referência independente • Guia 0.3.0 • Quiz <span data-app-version>0.3.0</span> • PT-BR</div>
       <h1>Qual Linux faz mais sentido para o seu <span class="gradient-text">workload?</span></h1>
       <p class="lead">
-        Escolha uma triagem adaptativa ou a análise especialista com até 70 etapas. O resultado
-        separa sistema-base, aplicativos, segurança, hardening/compliance, identidade, provisionamento/gestão de frota, experiência visual, rollback, hardware, storage, virtualização e containers para
-        sugerir uma distribuição, edição/canal, Desktop Environment, Display Manager e versão coerentes com o perfil informado.
+        Escolha uma triagem adaptativa ou a análise especialista, com até 73 critérios condicionais. O resultado cruza workload, manutenção, segurança, hardware, software, interface gráfica e infraestrutura para sugerir uma distribuição ou edição/canal coerente com o perfil informado e, quando aplicável, a combinação de ambiente gráfico e versão.
       </p>
       <fieldset class="mode-picker" id="modePicker">
         <legend>Profundidade da análise</legend>
@@ -802,7 +825,7 @@
         </label>
         <label class="mode-option">
           <input type="radio" name="analysisMode" value="expert">
-          <span><strong>Análise especialista</strong><small>Até 70 critérios condicionais para produção, frota, compliance e infraestrutura.</small></span>
+          <span><strong>Análise especialista</strong><small>Até 73 critérios condicionais para produção, frota, compliance e infraestrutura.</small></span>
         </label>
       </fieldset>
       <div class="hero-actions">
@@ -811,14 +834,13 @@
         <button class="btn btn-ghost" id="methodButton" type="button">Como funciona</button>
       </div>
       <div class="notice" style="margin-top:18px">
-        <strong>Antes de responder:</strong> recomendamos ler o <code>README.md</code> completo. O quiz usa conceitos como LTS,
-        Rolling Release, Flatpak, Desktop Environment, Display Manager, systemd/init, rollback e atualização atômica. Se um termo não estiver claro, consulte o guia em vez de chutar a resposta. A base inclui apenas sistemas/distribuições relevantes e ativos; nomes que não são distribuições (por exemplo, Quetoo, que é um jogo) não entram no ranking.
+        <strong>Antes de responder:</strong> não é necessário ler todo o guia. Quando um conceito não estiver claro, consulte a referência técnica em vez de chutar a resposta; o quiz oferece explicações no próprio fluxo sempre que possível.
       </div>
-      <p class="microcopy">Sem cadastro • sem envio de respostas • roda localmente no navegador • dados verificados em 15/08/2026</p>
+      <p class="microcopy">Sem cadastro • sem envio de respostas • roda localmente no navegador • snapshot global: 15/08/2026 • atualizações pontuais: 11/09/2026</p>
 
       <div class="stats" aria-label="Resumo do questionário">
-        <div class="stat"><strong id="questionRange">12–22</strong><span>respostas na triagem adaptativa</span></div>
-        <div class="stat"><strong id="catalogCount">95</strong><span>candidatos: distros, canais e appliances</span></div>
+        <div class="stat"><strong id="questionRange">12–24</strong><span>respostas na triagem adaptativa</span></div>
+        <div class="stat"><strong id="catalogCount">96</strong><span>candidatos: distros, canais e appliances</span></div>
         <div class="stat"><strong>1 + 2</strong><span>recomendação principal e alternativas</span></div>
       </div>
     </section>
@@ -900,15 +922,14 @@
       <div class="eyebrow">Metodologia</div>
       <h2>Como o resultado é calculado</h2>
       <p class="lead" style="font-size:1rem; margin-bottom:0">
-        O quiz combina requisitos eliminatórios com preferências ponderadas. Algumas perguntas aceitam múltiplas respostas,
-        e o algoritmo separa camadas que frequentemente são confundidas: base do sistema, aplicativos, origem dos pacotes, Desktop Environment, Display Manager, protocolo gráfico (Wayland/X11), recursos de exibição, Mesa/Vulkan, GPU/compute, firmware, codecs, software proprietário, Secure Boot, init/gerenciamento de serviços, segurança, hardening/compliance, identidade/autenticação corporativa, provisionamento/automação em escala, continuidade operacional/manutenção sem downtime, recuperação, armazenamento, filesystem, criptografia, virtualização, containers, cloud-native, rede/dataplane e observabilidade/telemetria.
-        A matriz gráfica modela explicitamente KDE Plasma, GNOME, Cinnamon, Xfce, COSMIC, Budgie, LXQt, MATE, Pantheon, DDE, Trinity e Moksha; distribuições especializadas podem usar interfaces/appliances fora dessa matriz e são avaliadas pelo workload. Gerenciadores de janelas/compositores independentes (como Sway ou Hyprland) não são misturados com Desktop Environments e ficam fora desta versão do recomendador. O Display Manager apresentado é a combinação padrão ou tecnicamente natural modelada para aquela edição/desktop; combinações manuais arbitrárias entre DE e DM não recebem vantagem apenas por serem possíveis.
+        O quiz combina requisitos eliminatórios com preferências ponderadas e regras cruzadas. Para evitar equivalências falsas, capacidades relacionadas são avaliadas separadamente — por exemplo, base do sistema, origem do software, interface gráfica, hardware, segurança, recuperação, infraestrutura, rede e operação. Os blocos abaixo resumem como essa separação funciona.
+        A matriz gráfica modela explicitamente KDE Plasma, GNOME, Cinnamon, Xfce, COSMIC, Budgie, LXQt, MATE, Pantheon, DDE, Trinity e Moksha. Pilhas especializadas também podem ser modeladas sem equivalência artificial de DE: Hyprland é tratado como compositor Wayland; no Omarchy, o shell é o Omarchy Shell construído com Quickshell. A ausência de um Desktop Environment tradicional não é penalidade por si só.
       </p>
       <div class="method-grid">
         <div class="method-item"><strong>1. Múltiplos workloads</strong><span>Você pode informar vários usos e, quando necessário, definir qual tem prioridade em caso de conflito.</span></div>
         <div class="method-item"><strong>2. Restrições + pesos</strong><span>Um requisito realmente obrigatório pode eliminar candidatos; preferências apenas alteram a pontuação.</span></div>
-        <div class="method-item"><strong>3. Regras cruzadas</strong><span>Ex.: base estável + DE/DM recentes, Rolling + rollback, init alternativo obrigatório, janela mínima de segurança, hardware novo + kernel recente e vendor support obrigatório.</span></div>
-        <div class="method-item"><strong>4. Elegibilidade do catálogo</strong><span>Generalistas concorrem normalmente; especializadas exigem contexto; catalog-only permanece visível sem poluir o ranking.</span></div>
+        <div class="method-item"><strong>3. Regras cruzadas</strong><span>Ex.: base estável + DE/DM recentes, Rolling + rollback, init alternativo obrigatório, janela mínima de segurança, hardware novo + kernel recente e suporte comercial do fornecedor obrigatório.</span></div>
+        <div class="method-item"><strong>4. Elegibilidade do catálogo</strong><span>Todos os 96 candidatos podem chegar ao resultado; generalistas concorrem normalmente e especializados exigem o contexto de workload/hardware correspondente.</span></div>
         <div class="method-item"><strong>5. Proveniência do software</strong><span>Gerenciador, formato, repositório e origem do pacote são avaliados separadamente; fontes suplementares não recebem a mesma confiança de um repositório oficial por definição.</span></div>
         <div class="method-item"><strong>6. Hardware e software não livre</strong><span>NVIDIA, firmware, codecs, Steam/apps proprietários e Secure Boot são critérios independentes; combinações incompatíveis geram conflito explícito em vez de uma recomendação artificial.</span></div>
         <div class="method-item"><strong>7. Pilha gráfica moderna</strong><span>Wayland/X11, XWayland, HDR, VRR, escala fracionária, múltiplos monitores e Mesa/Vulkan são avaliados separadamente. Um desktop pode ser moderno sem satisfazer todos esses recursos.</span></div>
@@ -1314,7 +1335,7 @@
       </details>
 
       <div class="notice">
-        Os dados de versões/canais foram verificados em <strong>15/08/2026</strong>. O catálogo curado separa as entradas em <strong>Elegível geral</strong>, <strong>Elegível por contexto</strong> e <strong>Somente catálogo</strong>. Um candidato contextual só concorre quando o workload ou hardware correspondente é selecionado; entradas somente catálogo não concorrem por padrão. Em Rolling Release, a mídia de instalação não é tratada como “versão do sistema”.
+        Os dados de versões/canais foram verificados em <strong>15/08/2026</strong>. O catálogo curado separa as entradas em <strong>Elegível geral</strong> e <strong>Elegível por contexto</strong>. Todos os 96 candidatos podem chegar ao resultado; um candidato contextual só concorre quando o workload ou hardware correspondente é selecionado. Em Rolling Release, a mídia de instalação não é tratada como “versão do sistema”.
         A pontuação não presume que “mais novo” signifique “menos bugs”. <strong>Rollback e backup são tratados como problemas diferentes</strong>: snapshots/deployments/generations podem reduzir o custo de uma regressão do sistema, mas não substituem cópias independentes dos dados pessoais. O algoritmo também diferencia recuperar um sistema ainda inicializável, iniciar um estado anterior pelo bootloader e desfazer apenas uma transação de pacotes. Segurança também não é tratada como sinônimo de suporte comercial: o quiz separa <strong>modelo de manutenção de segurança</strong>, <strong>janela de manutenção da release</strong> e <strong>obrigação de upgrade/rebase</strong>. Em LTS/Stable, correções podem ser backportadas sem trocar a versão principal do software; em Fixed Releases curtas é necessário migrar periodicamente para continuar dentro do lifecycle; em Rolling Release a continuidade depende de acompanhar o fluxo de atualizações, e não de permanecer anos numa release congelada. Para desktop/login, o algoritmo separa o quão atual o pacote está hoje da política de entrega de novas gerações: uma Fixed Release rápida não é tratada como equivalente a uma Rolling apenas porque ambas coincidem na versão atual. A escolha de init também é separada de “velocidade de boot”: systemd, OpenRC, runit, s6, Dinit, SysVinit, Shepherd e os inits específicos de appliances são avaliados por compatibilidade, administração e preferência arquitetural, não por um ranking universal de qualidade. A origem do software também é tratada separadamente do gerenciador e do formato: repositórios oficiais, canais oficiais do fornecedor, Flatpak/Flathub, repositórios comunitários e ecossistemas de build do usuário têm responsabilidades e modelos de confiança diferentes. O quiz não presume que “estar no AUR/PPA/COPR/OBS” torne um pacote automaticamente bom ou ruim; a procedência e o mantenedor continuam importando. Drivers, firmware, codecs e software proprietário também não são tratados como um único bloco: uma distro pode ter excelente suporte a Secure Boot e ainda exigir fonte suplementar para codecs; outra pode facilitar NVIDIA mas exigir desabilitar Secure Boot. Continuidade operacional segue a mesma separação: live kernel patching reduz a urgência de certos reboots, enquanto HA/failover e rolling maintenance preservam a disponibilidade do serviço por redundância. Rede também é decomposta: gerenciamento de interfaces, firewall, VPN, routing control plane, EVPN/VXLAN e dataplane acelerado são capacidades independentes; disponibilidade de um pacote não torna uma distro generalista equivalente a um appliance/NOS especializado. kexec/soft reboot reduz tempo de reinicialização, mas não mantém processos vivos; nenhum live patching é tratado como cobertura universal de todos os CVEs ou substituto permanente de reboots planejados. Quando requisitos como “somente software livre” e “NVIDIA proprietária obrigatória” entram em conflito, o resultado deve sinalizar incompatibilidade em vez de mascará-la com pontuação. Storage segue a mesma regra: Btrfs, ZFS, XFS, ext4, RAID/LVM, integridade e criptografia são dimensões separadas. RAID e snapshots não são classificados como backup. TPM/FIDO2 são métodos de desbloqueio/gestão de chave, não substitutos da criptografia do volume; hibernação é avaliada separadamente porque depende de swap/resume persistente e compatível com o esquema de criptografia.
       </div>
     </section>
@@ -1324,7 +1345,7 @@
         <div>
           <strong>Linux Distro Advisor</strong><br>
           Guia técnico independente • conteúdo editorial CC BY 4.0 • código MIT<br>
-          Snapshot factual: 2026-08-15 • Guia 0.1.7 • Quiz <span data-app-version>0.1.0</span>
+          Snapshot factual global: 2026-08-15 • atualizações pontuais: 2026-09-11 • Guia 0.3.0 • Quiz <span data-app-version>0.3.0</span>
         </div>
         <div class="footer-links">
           <a href="./index.html">Início</a>
@@ -1343,7 +1364,7 @@
   <script>
 'use strict';
 
-const APP_VERSION = '0.1.0';
+const APP_VERSION = '0.3.0';
 const REFERENCE_DATE = '15/08/2026';
 
 document.querySelectorAll('[data-app-version]').forEach(element => {
@@ -1694,7 +1715,7 @@ const DISTROS = {
     model: 'Enterprise Fixed Release',
     ecosystem: 'DNF / RPM',
     profile: 'Produção corporativa, suporte e certificações',
-    summary: 'Escolha natural quando lifecycle empresarial, vendor support, compliance e previsibilidade são requisitos formais.',
+    summary: 'Escolha natural quando lifecycle empresarial, suporte comercial do fornecedor, compliance e previsibilidade são requisitos formais.',
     tradeoffs: [
       'Prioriza estabilidade da plataforma e backports, não versões upstream recém-lançadas.',
       'Não é candidato forte para quem exige que DE e DM acompanhem rapidamente o upstream.',
@@ -2248,9 +2269,10 @@ Object.assign(DISTROS, {
   },
   nitrux: {
     name:'Nitrux', version:'6.1.0', model:'Immutable/idempotent technical workstation', ecosystem:'Debian base + NX tooling / AppHub',
-    profile:'Workstation técnico imutável com OpenRC e Hyprland', family:'Debian-derived', category:'Workstation especializado', cadence:'fixedFresh', tier:'reference',
-    summary:'Sistema técnico especializado que em 2026 usa Hyprland e uma fundação imutável/idempotente; sua interface principal é um compositor/window manager fora da matriz de Desktop Environments deste quiz.',
-    tradeoffs:['Hyprland não é tratado como Desktop Environment nesta versão do recomendador.','Por isso Nitrux permanece catalogado, mas não disputa o ranking até existir uma trilha específica para compositores/window managers.'],
+    profile:'Workstation técnico imutável com OpenRC e Hyprland', family:'Debian-derived', category:'Workstation especializado', cadence:'fixedFresh', tier:'specialized', gateAny:['desktop','dev'],
+    interfaceStack:{kind:'compositor Wayland',sessionProtocol:'Wayland',compositor:'Hyprland',windowModel:'dynamic tiling',desktopEnvironment:null,interaction:'tiling/keyboard-friendly',configurationStyle:'arquivos de configuração + ferramentas da distribuição',customization:3,learningCurve:3,familiarDesktop:0,graphics:{wayland:3,x11:0,xwayland:2,fractional:2},xwaylandHidpiCaveat:true,nvidiaCaution:true,label:'Hyprland'},
+    summary:'Sistema técnico especializado que em 2026 usa Hyprland e uma fundação imutável/idempotente; sua interface principal usa um compositor Wayland fora da matriz de Desktop Environments, mas pode concorrer quando desktop ou desenvolvimento forem workloads explícitos.',
+    tradeoffs:['Hyprland é compositor Wayland, não Desktop Environment completo: a elegibilidade usa contexto de workstation/interface sem criar equivalência artificial com GNOME, KDE ou outro DE.','Hyprland é Wayland-native; aplicações X11 dependem de XWayland, e HiDPI pode exigir ajustes específicos.','A proposta imutável/idempotente e o ecossistema NX/AppHub diferem de um Debian desktop tradicional; valide o fluxo operacional antes de adotar.'],
     desktops:{}, traits:{desktop:2,dev:3,atomic:3,complexity:3,freshness:3,learning:2}
   },
   pclos: {
@@ -2263,18 +2285,28 @@ Object.assign(DISTROS, {
   },
   kaos: {
     name:'KaOS', version:'Dinit 2026.06 • Rolling', model:'Rolling independente focado em Qt', ecosystem:'pacman + repositórios próprios',
-    profile:'Qt-focused, Dinit, Niri/Noctalia', family:'Independente', category:'Qt / experimental direction', cadence:'rollingIntegrated', tier:'reference',
-    summary:'Distribuição Rolling independente e Qt-focused. Em 2026 migrou o ISO principal para Niri/Noctalia e anunciou que Plasma 6.7 será a última linha Plasma nos repositórios.',
-    tradeoffs:['A interface principal atual usa Niri/Noctalia, fora da matriz de Desktop Environments deste quiz.','Não deve aparecer como recomendação KDE “sempre atualizada”, pois o próprio projeto anunciou a remoção do Plasma quando 6.8 chegar.'],
-    desktops:{}, traits:{desktop:2,freshness:3,rolling:3,complexity:2}
+    profile:'Qt-focused, Dinit, Niri/Noctalia', family:'Independente', category:'Qt / experimental direction', cadence:'rollingIntegrated', tier:'specialized', gateAny:['desktop','dev'],
+    interfaceStack:{kind:'compositor Wayland + shell',sessionProtocol:'Wayland',compositor:'Niri',windowModel:'scrolling tiling',desktopEnvironment:null,shell:'Noctalia',interaction:'tiling/keyboard-oriented',configurationStyle:'shell + arquivos de configuração',customization:3,learningCurve:2,graphics:{wayland:3,x11:0,xwayland:2},label:'Niri + Noctalia'},
+    summary:'Distribuição Rolling independente e Qt-focused. Em 2026 migrou o ISO principal para Niri/Noctalia; pode concorrer em contexto desktop/desenvolvimento sem ser mapeada artificialmente como KDE.',
+    tradeoffs:['A interface principal atual usa Niri/Noctalia, fora da matriz de Desktop Environments; o Advisor usa contexto de interface/workflow em vez de fingir equivalência com um DE.','Não deve aparecer como recomendação KDE “sempre atualizada”, pois o próprio projeto anunciou a remoção do Plasma quando 6.8 chegar.'],
+    desktops:{}, traits:{desktop:2,dev:2,freshness:3,rolling:3,complexity:2}
+  },
+  omarchy: {
+    name:'Omarchy', version:'Stable channel • Arch-based', model:'Rolling workstation com curadoria Omarchy', ecosystem:'pacman + repositório/mirror Omarchy + AUR opcional',
+    profile:'Workstation de desenvolvimento centrada em teclado/terminal com Hyprland + Omarchy Shell', family:'Arch/Omarchy', category:'Workstation de desenvolvimento especializado', cadence:'rollingIntegrated', tier:'specialized', gateAny:['desktop','dev'],
+    interfaceStack:{kind:'compositor Wayland + shell',sessionProtocol:'Wayland',compositor:'Hyprland',windowModel:'dynamic tiling',desktopEnvironment:null,shell:'Omarchy Shell',shellToolkit:'Quickshell',interaction:'keyboard-first',configurationStyle:'menu/CLI + dotfiles Lua/JSON',customization:3,customizationEase:2,learningCurve:3,familiarDesktop:0,graphics:{wayland:3,x11:0,xwayland:2,fractional:2},xwaylandHidpiCaveat:true,nvidiaCaution:true,label:'Hyprland + Omarchy Shell (Quickshell)'},
+    summary:'Workstation Arch-based opinativo para desenvolvimento, com Hyprland como compositor Wayland e Omarchy Shell construído com Quickshell. O fluxo é keyboard-first, tiling, terminal/TUI e altamente customizável. No canal Stable, Omarchy combina releases próprias com um mirror Arch deliberadamente atrasado para ganhar uma janela de validação.',
+    tradeoffs:['Hyprland é compositor Wayland; o Omarchy Shell é construído com Quickshell. Essa pilha não é mapeada artificialmente como GNOME, KDE ou outro Desktop Environment.','O workflow é deliberadamente keyboard-first e menos orientado à familiaridade de Windows/macOS; usuários mouse-first ou com baixa tolerância a configuração podem preferir um DE tradicional.','Aplicações X11 legadas dependem de XWayland; em HiDPI, aplicações X11 podem exigir ajustes e ainda apresentar limitações de escala.','A documentação oficial do Hyprland alerta que NVIDIA pode exigir procedimentos adicionais; o Advisor trata isso como cautela, não incompatibilidade absoluta.','A documentação oficial atual exige desabilitar Secure Boot e/ou TPM para instalar Omarchy; portanto ele não atende quando manter Secure Boot é requisito.','Atualizações criam snapshot do sistema e permitem recuperação pelo boot, mas snapshots de sistema não equivalem a backup dos dados de /home.'],
+    desktops:{},
+    traits:{desktop:2,dev:3,gaming:2,beginner:1,lowMaintenance:2,freshness:2,rolling:3,rollback:3,newHardware:3,learning:2,complexity:2,agenticDev:3}
   },
   bluefin: {
-    name:'Bluefin', version:'Stable • Fedora 44-based / LTS disponível', model:'Image-based workstation / Universal Blue', ecosystem:'bootc/OCI image + Flatpak + Homebrew + containers',
-    profile:'Workstation GNOME cloud-native de baixa manutenção', family:'Fedora/Universal Blue', category:'Image-based workstation', cadence:'fixedFresh',
-    summary:'Workstation image-based centrado em GNOME, atualizações automáticas e ferramentas cloud-native, com variantes Stable e LTS.',
-    tradeoffs:['Não é uma distribuição package-based tradicional; o projeto prefere o conceito de imagem/OS sobre uma base Fedora/Universal Blue.','A administração do host e instalação de ferramentas segue uma filosofia diferente de DNF tradicional.'],
+    name:'Bluefin', version:'Stable • Fedora-based / LTS • CentOS Stream 10-based', model:'Image-based / bootc workstation', ecosystem:'bootc/OCI image + Flatpak + Homebrew + containers/devcontainers',
+    profile:'Workstation GNOME cloud-native para desenvolvimento e IA, de baixa manutenção', family:'Bluefin/Universal Blue', category:'Image-based workstation', cadence:'fixedFresh',
+    summary:'Workstation GNOME image-based com atualizações automáticas, Developer Mode separado do host e fluxos cloud-native com agentes de IA. A linha LTS usa CentOS Stream 10; GDX combina Bluefin LTS, Developer Mode, drivers NVIDIA e CUDA para workloads de IA/ML.',
+    tradeoffs:['Não é uma distribuição package-based tradicional: aplicações gráficas, ferramentas CLI e ambientes de desenvolvimento são deliberadamente desacoplados do host por Flatpak, Homebrew, containers/devcontainers e modos próprios.','Bluefin Stable e Bluefin LTS não compartilham a mesma base: a documentação atual descreve LTS sobre CentOS Stream 10; valide sempre a variante exata.','A documentação do projeto está em atualização ampla em setembro de 2026; detalhes voláteis de DX/GDX/IA devem ser rechecados antes de homologação.'],
     desktops:{gnome:DP(3,'GDM',3,3,'Bluefin')},
-    traits:{desktop:3,dev:3,containers:3,beginner:2,lowMaintenance:3,atomic:3,rollback:3,flatpak:3,freshness:3,newHardware:3}
+    traits:{desktop:3,dev:3,containers:3,beginner:2,lowMaintenance:3,atomic:3,rollback:3,flatpak:3,freshness:3,newHardware:3,agenticDev:3}
   },
   aurora: {
     name:'Aurora', version:'Stable • Fedora 44-based', model:'Image-based workstation / Universal Blue', ecosystem:'bootc/OCI image + Flatpak + Homebrew + containers',
@@ -2412,11 +2444,12 @@ Object.assign(DISTROS, {
   }
 });
 
-// Política formal de elegibilidade. `reference` nunca entra no ranking desta versão.
-const REFERENCE_IDS = new Set(['nitrux','kaos']);
+// Política formal de elegibilidade. Na 0.3.0, todos os 96 candidatos podem concorrer;
+// candidatos especializados continuam protegidos por contexto de workload/hardware.
+const REFERENCE_IDS = new Set([]);
 Object.entries(DISTROS).forEach(([id,d]) => {
   if (REFERENCE_IDS.has(id)) d.tier='reference';
-  else if (d.tier !== 'specialized' && (Array.isArray(d.gateAny) || Array.isArray(d.gateHardware))) d.tier='specialized';
+  else if (d.tier !== 'specialized' && (Array.isArray(d.gateAny) || Array.isArray(d.gateHardware) || d.gateAnswer)) d.tier='specialized';
   else if (!d.tier) d.tier='recommended';
 });
 const TIER_META = {
@@ -2528,6 +2561,7 @@ const RECOVERY_OVERRIDES = {
   // rpm-ostree family: previous deployment is kept for rollback/boot; package-by-package undo is not its main recovery model.
   fedoraAtomic:{system:3,boot:3,snapshot:0,generation:2,packageUndo:1,atomic:3,mechanism:'rpm-ostree deployments'},
   bazzite:{system:3,boot:3,snapshot:0,generation:2,packageUndo:1,atomic:3,mechanism:'rpm-ostree / ostree deployments'},
+  omarchy:{system:3,boot:3,snapshot:3,generation:1,packageUndo:0,atomic:0,mechanism:'bootable root snapshots via Limine'},
   bluefin:{system:3,boot:3,snapshot:0,generation:2,packageUndo:1,atomic:3,mechanism:'ostree deployments'},
   aurora:{system:3,boot:3,snapshot:0,generation:2,packageUndo:1,atomic:3,mechanism:'ostree deployments'},
   coreos:{system:3,boot:3,snapshot:0,generation:2,packageUndo:0,atomic:3,mechanism:'rpm-ostree deployments'},
@@ -2840,7 +2874,7 @@ function softwareSourceProfile(id) {
   // Flatpak é cross-distro: para candidatos de desktop modelados, disponibilidade recebe baseline 2;
   // valor 3 continua reservado aos sistemas em que Flatpak é parte central/fortemente integrado ao fluxo.
   if (Object.keys(d?.desktops || {}).length) p.flatpak=Math.max(p.flatpak,2);
-  const archIds=['arch','manjaro','cachyos','garuda','endeavour','blackarch','biglinux','artix','steamos'];
+  const archIds=['arch','omarchy','manjaro','cachyos','garuda','endeavour','blackarch','biglinux','artix','steamos'];
   const fedoraIds=['fedora','fedoraAtomic','rhel','rocky','alma','oracle','centosstream','coreos','bazzite','nobara','bluefin','aurora','asahi','amazonlinux','azurelinux'];
   const suseIds=['leap','tumbleweed','aeon','microos','sles','sled','regata'];
   const ubuntuIds=['ubuntu','mint','neon','popos','zorin','elementary','linuxlite','tuxedo','vanilla','rhino'];
@@ -2893,6 +2927,7 @@ const HW_SW_OVERRIDES = {
   tuxedo:{nvidia:3,hybrid:3,cuda:2,rocm:2,firmware:3,codecs:2,steam:2,commercial:3,secureBoot:2,nvidiaSecureBoot:2},
   regata:{nvidia:2,hybrid:2,cuda:1,rocm:1,firmware:3,codecs:3,steam:3,commercial:2,secureBoot:2,nvidiaSecureBoot:1},
   biglinux:{nvidia:2,hybrid:2,cuda:1,rocm:1,firmware:3,codecs:3,steam:3,commercial:2,secureBoot:1,nvidiaSecureBoot:1},
+  omarchy:{nvidia:1,hybrid:1,cuda:1,secureBoot:0,nvidiaSecureBoot:0},
   bluefin:{nvidia:2,hybrid:2,cuda:1,rocm:1,firmware:3,codecs:3,steam:2,commercial:3,secureBoot:2,nvidiaSecureBoot:2},
   aurora:{nvidia:2,hybrid:2,cuda:1,rocm:1,firmware:3,codecs:3,steam:2,commercial:3,secureBoot:2,nvidiaSecureBoot:2},
   trisquel:{nvidia:0,hybrid:0,cuda:0,rocm:0,firmware:0,codecs:0,steam:0,commercial:0,secureBoot:2,nvidiaSecureBoot:0,strictFree:true},
@@ -2971,7 +3006,7 @@ const WORKLOAD_OPTIONS = [
   { id:'desktop', label:'Desktop pessoal', desc:'Navegação, documentos, multimídia e uso diário.', weights:W(['mint',7],['zorin',7],['ubuntu',5],['fedora',6],['popos',7],['mx',6],['elementary',6],['bazzite',5]) },
   { id:'dev', label:'Desenvolvimento', desc:'IDE, runtimes, containers, SDKs, compiladores e bancos locais.', weights:W(['fedora',7],['nixos',7],['tumbleweed',6],['arch',5],['ubuntu',6],['cachyos',5],['fedoraAtomic',6]) },
   { id:'server', label:'Servidor / infraestrutura', desc:'Web, banco, serviços, VMs, automação e operação contínua.', weights:W(['debian',8],['ubuntu',8],['rhel',8],['rocky',7],['alma',7],['oracle',7],['sles',8]) },
-  { id:'enterprise', label:'Produção enterprise', desc:'Compliance, vendor support, certificações e governança.', weights:W(['rhel',14],['sles',13],['oracle',11],['ubuntu',8],['rocky',6],['alma',6],['sled',8]) },
+  { id:'enterprise', label:'Produção enterprise', desc:'Compliance, suporte comercial do fornecedor, certificações e governança.', weights:W(['rhel',14],['sles',13],['oracle',11],['ubuntu',8],['rocky',6],['alma',6],['sled',8]) },
   { id:'containers', label:'Containers / desenvolvimento cloud-native', desc:'Podman/Docker, Toolbx/Distrobox, imagens e ambientes isolados no desktop/servidor.', weights:W(['fedoraAtomic',9],['fedora',8],['nixos',8],['ubuntu',6],['rhel',5],['centosstream',6]) },
   { id:'containerHost', label:'Host Kubernetes / containers dedicado', desc:'Nós mínimos, imutáveis ou transacionais para Kubernetes/EKS/ECS e clusters.', weights:W(['talos',20],['coreos',17],['microos',17],['flatcar',17],['bottlerocket',17],['harvester',11],['alpine',7]) },
   { id:'gaming', label:'Jogos / desktop multimídia', desc:'Steam/Proton, GPU, áudio, codecs e baixa fricção de desktop.', weights:W(['bazzite',13],['nobara',13],['cachyos',10],['garuda',9],['fedora',8],['tumbleweed',8],['popos',8],['arch',7]) },
@@ -3003,6 +3038,7 @@ const STYLE_DE_WEIGHTS = {
   traditionalModern: { kde:10, cinnamon:9, budgie:7, xfce:6, lxqt:5, mate:5, trinity:7, dde:6, moksha:5, cosmic:4, gnome:2, pantheon:2 },
   workflow: { gnome:10, pantheon:9, cosmic:7, dde:6, kde:4, budgie:3, cinnamon:2, xfce:2, lxqt:1, mate:1, trinity:1, moksha:2 },
   modernAdaptive: { cosmic:10, kde:8, dde:8, gnome:6, pantheon:5, budgie:5, cinnamon:4, moksha:3, xfce:2, lxqt:2, mate:1, trinity:1 },
+  tilingKeyboard: { cosmic:6, kde:4, gnome:3, dde:2, budgie:2, cinnamon:1, xfce:1, lxqt:1, mate:1, pantheon:1, trinity:1, moksha:2 },
   lightweight: { xfce:10, lxqt:10, trinity:10, moksha:9, mate:8, budgie:6, cinnamon:4, kde:3, pantheon:2, dde:2, gnome:1, cosmic:1 },
   any: Object.fromEntries(Object.keys(DESKTOPS).map(id => [id,1]))
 };
@@ -3440,6 +3476,18 @@ const QUESTIONS = [
     options: priorityOptions
   },
   {
+    id:'devAiPriority', kicker:'Desenvolvimento • IA e agentes', type:'single',
+    when: answers => Array.isArray(answers.workload) && answers.workload.includes('dev'),
+    title:'Quanto você valoriza uma workstation já preparada para desenvolvimento e agentes de IA?',
+    help:'Esta é uma preferência contextual de desenvolvimento, não uma nova dimensão do Advisor nem um requisito universal. Integração com agentes não implica conta, assinatura, créditos ou gratuidade dos provedores.',
+    options:[
+      {id:'none',label:'Sem prioridade',desc:'IA/agentes não devem influenciar minha escolha; quero que os demais requisitos decidam.'},
+      {id:'useful',label:'É útil, mas secundário',desc:'Quero boa disponibilidade de agentes e ferramentas de IA, sem deixar essa preferência dominar arquitetura, desktop ou manutenção.',weights:W(['omarchy',5],['bluefin',5],['fedora',3],['fedoraAtomic',3],['ubuntu',3],['nixos',3],['arch',3])},
+      {id:'important',label:'É importante',desc:'Quero um ambiente de desenvolvimento com integração clara para agentes de programação, modelos locais ou fluxos assistidos por IA.',weights:W(['omarchy',10],['bluefin',10],['fedora',5],['fedoraAtomic',5],['ubuntu',5],['nixos',5],['arch',4])},
+      {id:'strong',label:'É prioridade forte',desc:'Quero que o preparo para agentes/IA tenha peso relevante, mas requisitos eliminatórios continuam acima dessa preferência.',weights:W(['omarchy',15],['bluefin',15],['fedora',7],['fedoraAtomic',7],['ubuntu',7],['nixos',6],['arch',5])}
+    ]
+  },
+  {
     id:'infraNeeds', kicker:'Virtualização e containers • papel', type:'multi', min:1, max:6, exclusive:'none',
     when: infraRelevantAnswers,
     title:'O que você realmente precisa executar ou administrar neste host?',
@@ -3457,7 +3505,7 @@ const QUESTIONS = [
   {
     id:'infraStrength', kicker:'Virtualização e containers • exigência', type:'single',
     when: answers => Array.isArray(answers.infraNeeds) && answers.infraNeeds.length>0 && !answers.infraNeeds.includes('none'),
-    title:'Quão obrigatórios são os papéis de virtualização/containers que você marcou?',
+    title:'Qual é o nível de exigência dos papéis de virtualização/containers selecionados?',
     help:'Como requisito forte, uma capacidade meramente possível por configuração manual pode não ser suficiente. O quiz exige suporte adequado ao papel selecionado.',
     options:[
       {id:'preference',label:'São preferências',desc:'Podem influenciar o ranking, mas não eliminar uma boa opção geral.'},
@@ -3584,7 +3632,7 @@ const QUESTIONS = [
   {
     id:'networkStrength', kicker:'Rede • força do requisito', type:'single',
     when: answers=>networkRelevantAnswers(answers)&&(selectedNetworkRoles().length>0||selectedNetworkFeatures().length>0),
-    title:'Quão obrigatórios são os requisitos de rede selecionados?',
+    title:'Qual é o nível de exigência das capacidades de rede selecionadas?',
     help:'Como requisito forte, “o pacote existe no repositório” pode não bastar. A plataforma precisa ter suporte/modelagem adequada para o papel e as capacidades escolhidas.',
     options:[
       {id:'preference',label:'Preferência',desc:'Networking ajuda a ordenar os candidatos, mas não elimina uma boa distro geral.'},
@@ -3641,7 +3689,7 @@ const QUESTIONS = [
   {
     id:'obsStrength', kicker:'Observabilidade • força do requisito', type:'single',
     when: answers=>observabilityRelevantAnswers(answers)&&selectedObsGoals().length>0,
-    title:'Quão obrigatórios são os requisitos de observabilidade?',
+    title:'Qual é o nível de exigência dos requisitos de observabilidade?',
     help:'Em requisito forte, a plataforma precisa oferecer integração suficiente para o sinal/capacidade pedido. OpenTelemetry/Prometheus genéricos continuam portáveis e não viram bônus artificial só por existirem no repositório.',
     options:[
       {id:'preference',label:'Preferência',desc:'Observabilidade ajuda a desempatar, mas não elimina uma distro adequada no restante.'},
@@ -3653,12 +3701,13 @@ const QUESTIONS = [
     id: 'desktopStyle', kicker: 'Experiência visual', type: 'single',
     when: desktopRelevantAnswers,
     title: 'Que estilo de desktop combina melhor com você?',
-    help: 'Esta pergunta descreve comportamento e ergonomia, sem obrigar você a conhecer nomes como KDE ou GNOME. A próxima pergunta permite escolher ambientes específicos.',
+    help: 'Esta pergunta descreve comportamento e ergonomia, sem obrigar você a conhecer nomes como KDE, GNOME ou Hyprland. A próxima pergunta permite escolher Desktop Environments específicos quando isso fizer sentido.',
     options: [
-      { id: 'traditionalModern', label: 'Tradicional e moderno, parecido com Windows', desc: 'Menu, barra/painel, janelas familiares e bastante personalização.' },
-      { id: 'workflow', label: 'Minimalista, integrado e com workflow próprio', desc: 'Aceito uma experiência diferente do Windows em troca de foco e consistência.' },
-      { id: 'modernAdaptive', label: 'Moderno, flexível e com organização avançada de janelas', desc: 'Tiling opcional, múltiplos workspaces e interface que posso adaptar bastante.' },
-      { id: 'lightweight', label: 'Leve, rápido e tradicional', desc: 'Prefiro baixo consumo e uma interface clássica, mesmo com menos efeitos.' },
+      { id: 'traditionalModern', label: 'Tradicional e moderno, parecido com Windows', desc: 'Menu, barra/painel, janelas familiares e bastante personalização.', weights: W(['zorin',8],['mint',7],['pclos',6],['biglinux',5],['regata',5],['tuxedo',5],['manjaro',4],['q4os',4]) },
+      { id: 'workflow', label: 'Minimalista, integrado e com workflow próprio', desc: 'Aceito uma experiência diferente do Windows em troca de foco e consistência.', weights: W(['elementary',7],['fedora',4],['bluefin',4],['popos',4],['deepin',3]) },
+      { id: 'modernAdaptive', label: 'Moderno, flexível e com organização avançada de janelas', desc: 'Quero workspaces, boa organização de janelas e bastante adaptação, mas tiling não precisa ser o centro do fluxo.', weights: W(['popos',6],['cachyos',5],['garuda',5],['omarchy',4],['nitrux',4],['kaos',4]) },
+      { id: 'tilingKeyboard', label: 'Tiling / keyboard-first e altamente configurável', desc: 'Quero atalhos e mosaico dinâmico como parte central do workflow e aceito editar configurações para ganhar controle e customização.', weights: W(['omarchy',12],['nitrux',9],['kaos',7]) },
+      { id: 'lightweight', label: 'Leve, rápido e tradicional', desc: 'Prefiro baixo consumo e uma interface clássica, mesmo com menos efeitos.', weights: W(['linuxlite',10],['mx',8],['q4os',8],['antix',9],['puppy',10],['peppermint',8],['bodhi',8],['void',3],['pclos',4]) },
       { id: 'any', label: 'O estilo visual não deve decidir sozinho', desc: 'Quero que outros requisitos pesem mais que a ergonomia do desktop.' }
     ]
   },
@@ -3666,7 +3715,7 @@ const QUESTIONS = [
     id: 'desktopEnv', kicker: 'Desktop Environment', type: 'multi', min: 1, max: 4, exclusive: 'auto',
     when: desktopRelevantAnswers,
     title: 'Quais ambientes de desktop você aceita usar?',
-    help: 'Você pode escolher mais de um. Se não conhece as diferenças, escolha “Quero que o quiz decida”. O resultado avaliará a combinação distribuição + edição/canal + Desktop Environment + Display Manager.',
+    help: 'Você pode escolher mais de um. Se não conhece as diferenças, escolha “Quero que o quiz decida”. Quando aplicável, o resultado avaliará a combinação entre distribuição, edição/canal, Desktop Environment e Display Manager. Pilhas especializadas, como compositor Wayland + shell, não recebem um DE artificial nem são penalizadas apenas por desktopEnvironment = null.',
     options: [
       { id: 'kde', label: 'KDE Plasma', desc: 'Moderno, tradicional e altamente personalizável.' },
       { id: 'gnome', label: 'GNOME', desc: 'Integrado, minimalista e com workflow próprio.' },
@@ -3738,7 +3787,7 @@ const QUESTIONS = [
   {
     id: 'displayFeatureStrength', kicker: 'Força dos recursos gráficos', type: 'single',
     when: answers => Array.isArray(answers.displayFeatures) && answers.displayFeatures.some(x=>x!=='none'),
-    title: 'Para os recursos gráficos marcados, qual é o nível de exigência?',
+    title: 'Qual é o nível de exigência dos recursos gráficos selecionados?',
     help: '“Requisito forte” elimina combinações cuja matriz indica ausência ou suporte apenas experimental/parcial. Mesmo assim, valide o hardware real antes de instalar.',
     options: [
       { id:'preference', label:'São preferências', desc:'É bom ter, mas não quero eliminar uma boa distro apenas por isso.' },
@@ -3797,13 +3846,25 @@ const QUESTIONS = [
   },
   {
     id: 'support', kicker: 'Suporte formal', type: 'single',
-    title: 'Suporte comercial e certificação de fornecedor são requisitos?',
-    help: 'Pense em SLA, fabricante do sistema operacional, hardware/ISV certificado, compliance e contrato. “Obrigatório” é requisito eliminatório.',
+    title: 'Suporte comercial, SLA ou contrato com o fornecedor são requisitos?',
+    help: 'Esta pergunta mede somente suporte comercial/contratual. Homologação, certificação e matriz de compatibilidade são avaliadas separadamente.',
     options: [
-      { id: 'required', label: 'Sim, são obrigatórios', desc: 'Sem vendor support formal a solução não pode ser adotada.', weights: W(['rhel',14],['ubuntu',10]), allowOnly: ALL_IDS.filter(id => DISTROS[id].commercialSupport) },
-      { id: 'desirable', label: 'Desejáveis, mas não obrigatórios', desc: 'Quero que exista caminho profissional, mas suporte comunitário pode bastar.', weights: W(['ubuntu',7],['rhel',7],['leap',4],['fedora',3],['debian',3]) },
+      { id: 'required', label: 'Sim, suporte formal é obrigatório', desc: 'Sem suporte comercial diretamente associado ao produto/projeto, a solução não pode ser adotada.', weights: W(['rhel',14],['ubuntu',10]), allowOnly: ALL_IDS.filter(id => DISTROS[id].commercialSupport) },
+      { id: 'desirable', label: 'É desejável, mas não obrigatório', desc: 'Quero que exista caminho profissional, mas suporte comunitário pode bastar.', weights: W(['ubuntu',7],['rhel',7],['leap',4],['fedora',3],['debian',3]) },
       { id: 'community', label: 'Comunidade é suficiente', desc: 'Documentação pública e suporte comunitário atendem.', weights: W(['debian',5],['fedora',5],['arch',5],['nixos',5],['tumbleweed',5],['mint',5],['ubuntu',3],['fedoraAtomic',5],['neon',4],['popos',4],['solus',4]) },
       { id: 'irrelevant', label: 'Não é fator de decisão', desc: 'Escolherei por aderência técnica e experiência de uso.', weights: W(...ALL_IDS.map(id => [id,1])) }
+    ]
+  },
+  {
+    id:'certificationRequirement', kicker:'Homologação e compatibilidade formal', type:'single',
+    when: answers => Array.isArray(answers.workload) && answers.workload.some(id => ['dev','server','enterprise','virtualization','containerHost','storage','network'].includes(id)),
+    title:'Uma matriz formal de hardware, software ou ISV precisa cobrir exatamente sua combinação?',
+    help:'Certificação/homologação vale para produto, release, arquitetura, hardware e/ou aplicação específicos. O quiz usa o ecossistema de certificação apenas para triagem; a matriz oficial da combinação exata continua obrigatória antes da adoção.',
+    options:[
+      {id:'required',label:'Sim, é requisito eliminatório',desc:'Só quero manter candidatos com ecossistema formal de certificação/homologação modelado; a combinação exata ainda precisará ser confirmada.',weights:W(['rhel',12],['sles',12],['sled',10],['oracle',10],['ubuntu',10]),allowOnly:['rhel','sles','sled','oracle','ubuntu']},
+      {id:'desirable',label:'É desejável',desc:'Ter catálogos/programas formais de compatibilidade conta pontos, mas não elimina outras opções.',weights:W(['rhel',8],['sles',8],['sled',7],['oracle',7],['ubuntu',7],['rocky',2],['alma',2])},
+      {id:'projectSpecific',label:'Tenho uma matriz específica e vou validar manualmente',desc:'Não quero que o quiz elimine por marca; tratarei a homologação como evidência externa do meu caso.'},
+      {id:'irrelevant',label:'Não é requisito',desc:'Não preciso de certificação/homologação formal para esta decisão.'}
     ]
   },
   {
@@ -3838,7 +3899,7 @@ const QUESTIONS = [
   {
     id: 'hardeningStrength', kicker: 'Hardening • força do requisito', type: 'single',
     when: answers => Array.isArray(answers.hardeningNeeds) && answers.hardeningNeeds.some(x=>x!=='none'),
-    title: 'Quão obrigatórios são os controles de hardening/compliance que você marcou?',
+    title: 'Qual é o nível de exigência dos controles de hardening/compliance selecionados?',
     help: '“Requisito forte” elimina candidatos quando a capacidade é ausente ou apenas experimental/manual na matriz. Mesmo assim, FIPS e certificações formais sempre exigem conferência do certificado/perfil da versão concreta antes da produção.',
     options: [
       { id:'preference', label:'Preferência', desc:'Quero essas capacidades, mas aceito implementá-las manualmente ou escolher uma alternativa quando necessário.' },
@@ -3885,7 +3946,7 @@ const QUESTIONS = [
   {
     id:'identityStrength', kicker:'Identidade • força do requisito', type:'single',
     when: answers => !['local','any',undefined].includes(answers.identityBackend),
-    title:'Quão obrigatória é essa integração de identidade?',
+    title:'Qual é o nível de exigência da integração de identidade selecionada?',
     help:'Como requisito forte, a distribuição precisa oferecer suporte suficientemente integrado/documentado ao backend e às capacidades selecionadas; “dá para montar manualmente” pode não ser suficiente.',
     options:[
       {id:'preference',label:'Preferência',desc:'Quero boa aderência, mas aceito configuração manual ou uma arquitetura alternativa.'},
@@ -3954,7 +4015,7 @@ const QUESTIONS = [
   {
     id:'fleetStrength', kicker:'Automação • força do requisito', type:'single',
     when: answers => fleetRelevantAnswers(answers) && (selectedProvisionNeeds().length>0 || selectedFleetNeeds().length>0 || ['medium','large','massive'].includes(answers.fleetScale)),
-    title:'Quão obrigatória é essa capacidade de provisionamento/gestão em escala?',
+    title:'Qual é o nível de exigência da capacidade de provisionamento/gestão em escala?',
     help:'Como requisito forte, “dá para fazer com scripts próprios” pode não ser suficiente. A combinação recomendada precisa ter uma arquitetura operacional compatível com as capacidades e a escala selecionadas.',
     options:[
       {id:'preference',label:'Preferência',desc:'Automação pesa no ranking, mas aceito montar componentes externos.'},
@@ -3994,7 +4055,7 @@ const QUESTIONS = [
   {
     id:'continuityStrength', kicker:'Continuidade • força do requisito', type:'single',
     when: answers => availabilityRelevantAnswers(answers) && (selectedContinuityNeeds().length>0 || ['serviceHA','deferKernel'].includes(answers.downtimePolicy)),
-    title:'Quão obrigatória é essa estratégia de continuidade?',
+    title:'Qual é o nível de exigência da estratégia de continuidade?',
     help:'Como requisito forte, a capacidade deve existir de forma suficientemente integrada/documentada. Uma tecnologia possível apenas por solução de terceiro ou engenharia própria pode não ser suficiente.',
     options:[
       {id:'preference',label:'Preferência',desc:'Ajuda no ranking, mas aceito soluções externas ou manutenção mais manual.'},
@@ -4048,7 +4109,7 @@ const QUESTIONS = [
     options: [
       { id: 'repoOnly', label: 'Pacotes nativos gerenciados pela distribuição', desc: 'APT/dpkg, DNF/RPM, Zypper/RPM, pacman etc. A versão pode ser conservadora ou muito recente dependendo do ciclo da distro.', weights: W(['debian',7],['rhel',7],['ubuntu',5],['leap',5],['mint',4],['fedora',5],['tumbleweed',5],['arch',5],['solus',5]) },
       { id: 'universal', label: 'Flatpak para aplicativos desktop', desc: 'Quero desacoplar aplicações da base. Flatpak é a tecnologia; Flathub é um dos repositórios possíveis.', weights: W(...ALL_IDS.map(id => [id, softwareSourceProfile(id).flatpak * 3])) },
-      { id: 'portable', label: 'AppImage ou binário portátil', desc: 'Aceito aplicações autocontidas que não dependem do repositório nativo da distribuição.', weights: W(['ubuntu',3],['fedora',3],['tumbleweed',3],['arch',3],['mint',3],['popos',3],['debian',2]) },
+      { id: 'portable', label: 'AppImage ou binário portátil', desc: 'Aceito aplicações autocontidas que não dependem do repositório nativo da distribuição.', weights: W(['puppy',10],['antix',4],['ubuntu',3],['fedora',3],['tumbleweed',3],['arch',3],['mint',3],['popos',3],['debian',2]) },
       { id: 'isolatedDev', label: 'Containers ou ambientes isolados para ferramentas', desc: 'Quero runtimes, SDKs e ferramentas recentes sem alterar desnecessariamente o host.', weights: W(['fedoraAtomic',10],['nixos',9],['fedora',7],['ubuntu',6],['tumbleweed',5],['arch',5]) },
       { id: 'sourceBuild', label: 'Compilar do código-fonte ou empacotar localmente', desc: 'Aceito builds locais quando necessário e assumo responsabilidade por atualização, dependências e remoção.', weights: W(['gentoo',10],['arch',6],['nixos',6],['slackware',7],['void',5],['alpine',4]) },
       { id: 'none', label: 'Não tenho preferência', desc: 'O quiz pode escolher a estratégia mais coerente com o restante das respostas.', weights: W(...ALL_IDS.map(id => [id,1])) }
@@ -4072,10 +4133,10 @@ const QUESTIONS = [
     title: 'Qual é seu nível de conforto administrando Linux?',
     help: 'Não é uma prova. Marque o nível em que consegue operar o sistema sem depender o tempo todo de receitas prontas.',
     options: [
-      { id: 'beginner', label: 'Iniciante / vindo do Windows ou macOS', desc: 'Quero interface clara, documentação e pouca manutenção manual.', weights: W(['mint',8],['ubuntu',7],['fedora',4],['popos',6],['solus',5],['neon',2],['leap',2],['arch',-8],['nixos',-7],['tumbleweed',-3],['kali',-4]) },
-      { id: 'intermediate', label: 'Intermediário', desc: 'Uso terminal, pacotes, serviços, rede e diagnostico problemas comuns.', weights: W(['ubuntu',4],['fedora',6],['debian',4],['leap',4],['tumbleweed',4],['fedoraAtomic',4],['mint',2],['neon',3],['popos',4],['solus',5]) },
-      { id: 'advanced', label: 'Avançado', desc: 'Administro boot, storage, rede, serviços, segurança e recuperação.', weights: W(['arch',6],['nixos',6],['tumbleweed',6],['debian',4],['fedora',5],['fedoraAtomic',5],['rhel',4],['neon',4],['solus',5]) },
-      { id: 'expert', label: 'Especialista / automação', desc: 'Quero IaC, reprodutibilidade, troubleshooting profundo e trade-offs explícitos.', weights: W(['nixos',9],['arch',7],['tumbleweed',6],['rhel',5],['debian',4],['fedoraAtomic',5],['fedora',4],['solus',4]) }
+      { id: 'beginner', label: 'Iniciante / vindo do Windows ou macOS', desc: 'Consigo realizar tarefas básicas com orientação e ainda dependo de documentação passo a passo para administração e recuperação.', weights: W(['mint',8],['ubuntu',7],['fedora',4],['popos',6],['solus',5],['neon',2],['leap',2],['arch',-8],['nixos',-7],['tumbleweed',-3],['kali',-4]) },
+      { id: 'intermediate', label: 'Intermediário', desc: 'Consigo usar terminal, gerenciar pacotes e serviços e diagnosticar problemas comuns com documentação.', weights: W(['ubuntu',4],['fedora',6],['debian',4],['leap',4],['tumbleweed',4],['fedoraAtomic',4],['mint',2],['neon',3],['popos',4],['solus',5]) },
+      { id: 'advanced', label: 'Avançado', desc: 'Consigo administrar boot, storage, rede, serviços, permissões, logs e recuperação com autonomia.', weights: W(['arch',6],['nixos',6],['tumbleweed',6],['debian',4],['fedora',5],['fedoraAtomic',5],['rhel',4],['neon',4],['solus',5]) },
+      { id: 'expert', label: 'Especialista / automação', desc: 'Consigo diagnosticar falhas complexas, automatizar operações, interpretar logs/estado do sistema e recuperar ambientes sem depender de receitas específicas.', weights: W(['nixos',9],['arch',7],['tumbleweed',6],['rhel',5],['debian',4],['fedoraAtomic',5],['fedora',4],['solus',4]) }
     ]
   },
   {
@@ -4137,14 +4198,29 @@ const QUESTIONS = [
       { id: 'apt', label: 'APT + dpkg/.deb — Debian/Ubuntu', desc: 'Quero aproveitar conhecimento e pacotes desse ecossistema.', weights: W(['ubuntu',5],['debian',5],['mint',5],['neon',5],['popos',5],['zorin',5],['mx',5],['elementary',5],['linuxlite',5],['q4os',5],['rhino',5],['trisquel',5],['pureos',5],['kali',2]) },
       { id: 'redhat', label: 'DNF + RPM — Fedora/RHEL', desc: 'Quero proximidade com Fedora/RHEL.', weights: W(['fedora',5],['fedoraAtomic',5],['rhel',5],['bluefin',5],['aurora',5],['asahi',5],['rocky',5],['alma',5],['oracle',5],['centosstream',5]) },
       { id: 'suse', label: 'Zypper + RPM — openSUSE/SUSE', desc: 'Quero o ecossistema openSUSE/SUSE.', weights: W(['leap',5],['tumbleweed',5],['aeon',5],['microos',5],['sles',5],['sled',5],['regata',5]) },
-      { id: 'pacman', label: 'pacman + pkg.tar.zst — Arch', desc: 'Prefiro o modelo e as ferramentas do Arch.', weights: W(['arch',5],['manjaro',5],['cachyos',5],['garuda',5],['endeavour',5],['biglinux',5],['artix',5]) },
+      { id: 'pacman', label: 'pacman + pkg.tar.zst — Arch', desc: 'Prefiro o modelo e as ferramentas do Arch.', weights: W(['arch',5],['omarchy',5],['manjaro',5],['cachyos',5],['garuda',5],['endeavour',5],['biglinux',5],['artix',5]) },
       { id: 'nix', label: 'Nix / Nixpkgs', desc: 'Quero o modelo Nix e configuração declarativa.', weights: W(['nixos',13]) },
       { id: 'solus', label: 'eopkg / Solus', desc: 'Quero o ecossistema curado do Solus.', weights: W(['solus',11]) },
       { id: 'portage', label: 'Portage / Gentoo', desc: 'Quero USE flags, source-based e controle do ecossistema Gentoo.', weights: W(['gentoo',13],['pentoo',7]) },
       { id: 'xbps', label: 'XBPS / Void Linux', desc: 'Quero o ecossistema Void e runit.', weights: W(['void',13]) },
       { id: 'apk', label: 'apk / Alpine', desc: 'Quero o ecossistema minimalista Alpine/musl.', weights: W(['alpine',13]) },
       { id: 'guix', label: 'GNU Guix', desc: 'Quero o modelo funcional/declarativo do GNU Guix.', weights: W(['guix',13]) },
+      { id: 'mandriva', label: 'RPM da linhagem Mandriva — Mageia/OpenMandriva/PCLinuxOS', desc: 'Quero priorizar ferramentas e projetos derivados da tradição Mandriva, sem confundir esse ecossistema com Fedora/RHEL ou openSUSE.', weights: W(['mageia',13],['openmandriva',13],['pclos',9]) },
       { id: 'none', label: 'Sem preferência', desc: 'Escolha pela aderência técnica, não pelo gerenciador.', weights: W(...ALL_IDS.map(id => [id,1])) }
+    ]
+  },
+  {
+    id:'rhelCompatProject', kicker:'Enterprise Linux • padronização', type:'single',
+    when: answers => answers.ecosystem === 'redhat' && Array.isArray(answers.workload) && answers.workload.some(w=>['server','enterprise'].includes(w)),
+    title:'Sua organização já padroniza algum projeto específico do ecossistema Enterprise Linux?',
+    help:'Use esta preferência somente quando existir padronização, familiaridade operacional, contrato, imagem-base ou decisão organizacional real. Sem isso, deixe o restante dos requisitos decidir.',
+    options:[
+      {id:'none',label:'Sem preferência por projeto específico',desc:'Quero comparar pela aderência técnica; nenhuma distribuição deve ganhar apenas pelo nome.'},
+      {id:'rhel',label:'Red Hat Enterprise Linux (RHEL)',desc:'Já existe padronização, suporte ou operação baseada diretamente em RHEL.',weights:W(['rhel',18])},
+      {id:'rocky',label:'Rocky Linux',desc:'Já existe padronização ou preferência operacional por Rocky Linux.',weights:W(['rocky',20])},
+      {id:'alma',label:'AlmaLinux',desc:'Já existe padronização ou preferência operacional por AlmaLinux.',weights:W(['alma',20])},
+      {id:'oracle',label:'Oracle Linux',desc:'Já existe padronização, Oracle workloads ou preferência operacional por Oracle Linux.',weights:W(['oracle',18])},
+      {id:'centosstream',label:'CentOS Stream',desc:'Quero especificamente o fluxo CentOS Stream no ecossistema Enterprise Linux.',weights:W(['centosstream',18])}
     ]
   },
   {
@@ -4255,7 +4331,7 @@ const QUESTIONS = [
   {
     id:'storageStrength', kicker:'Armazenamento • exigência', type:'single',
     when: answers => Array.isArray(answers.storageNeeds) && answers.storageNeeds.length>0 && !answers.storageNeeds.includes('none'),
-    title:'Quão obrigatórias são as características de armazenamento que você marcou?',
+    title:'Qual é o nível de exigência das características de armazenamento selecionadas?',
     help:'Se você marcar Btrfs/ZFS/XFS/ext4 como requisito forte, o quiz poderá eliminar distribuições cuja integração com aquele filesystem seja apenas experimental, manual ou fora do fluxo suportado.',
     options:[
       {id:'preference',label:'São preferências',desc:'Valorizo essas características, mas aceito outro layout se a distro for melhor no conjunto.'},
@@ -4323,7 +4399,7 @@ const QUESTIONS = [
   {
     id: 'recoveryStrength', kicker: 'Recuperação • exigência', type: 'single',
     when: answers => Array.isArray(answers.recoveryNeeds) && answers.recoveryNeeds.length > 0 && !answers.recoveryNeeds.includes('none'),
-    title: 'Quão obrigatórias são as capacidades de recuperação que você marcou?',
+    title: 'Qual é o nível de exigência das capacidades de recuperação selecionadas?',
     help: '“Requisito forte” pode eliminar uma distro cuja recuperação dependa principalmente de configuração manual. Isso permite comparar corretamente, por exemplo, Tumbleweed/Snapper, Fedora Atomic/rpm-ostree e NixOS/generations.',
     options: [
       { id:'preference', label:'São preferências', desc:'Valorizo recuperação simples, mas uma distro excelente em outros critérios ainda pode vencer.' },
@@ -4346,9 +4422,9 @@ const QUESTIONS = [
 ];
 
 const TRIAGE_QUESTION_IDS = new Set([
-  'workload','priority','infraNeeds','networkRole','desktopStyle','desktopEnv',
-  'cloudPlatform','support','securityUpgradeCadence','baseCadence','apps',
-  'experience','maintenance','architecture','ecosystem','hardware',
+  'workload','priority','devAiPriority','infraNeeds','networkRole','desktopStyle','desktopEnv',
+  'cloudPlatform','support','certificationRequirement','securityUpgradeCadence','baseCadence','apps',
+  'experience','maintenance','architecture','ecosystem','rhelCompatProject','hardware',
   'nonFreePolicy','gpuNeeds','storageNeeds','risk','recoveryNeeds','backupStrategy'
 ]);
 
@@ -4429,7 +4505,7 @@ function updateModePreview() {
   const selected = document.querySelector('input[name="analysisMode"]:checked')?.value || 'triage';
   const expert = selected === 'expert';
   els.start.textContent = expert ? 'Iniciar análise especialista →' : 'Iniciar triagem →';
-  els.questionRange.textContent = expert ? 'até 70' : '12–22';
+  els.questionRange.textContent = expert ? 'até 73' : '12–24';
   els.questionRange.nextElementSibling.textContent = expert ? 'critérios condicionais' : 'respostas na triagem adaptativa';
 }
 
@@ -4664,6 +4740,13 @@ function scoreQuiz() {
       contextExclude(id, `Candidato contextual em ${d.gateAny.join(' / ')}; esse workload não foi selecionado.`);
       return;
     }
+    if (d.gateAnswer) {
+      const value = state.answers[d.gateAnswer.question];
+      if (!Array.isArray(d.gateAnswer.values) || !d.gateAnswer.values.includes(value)) {
+        contextExclude(id, `Candidato contextual: requer preferência explícita por desenvolvimento com IA/agentes.`);
+        return;
+      }
+    }
     if (Array.isArray(d.gateHardware) && d.gateHardware.length && !d.gateHardware.includes(state.answers.hardware)) {
       contextExclude(id, `Candidato contextual no hardware ${d.gateHardware.join(' / ')}; essa plataforma não foi selecionada.`);
       return;
@@ -4680,6 +4763,25 @@ function scoreQuiz() {
     const pri = state.answers.priority;
     if (pri && t[pri]) add(id, Number(t[pri]) * 6.0, `${d.name} também se alinha ao workload definido como prioridade.`);
     if (pri && ['desktop','server','enterprise','containerHost','storage','virtualization','network','edge'].includes(pri) && !Number(t[pri]||0)) add(id,-22,`${d.name} não tem o workload prioritário como proposta modelada principal.`);
+
+    // 0.3.0 — camada genérica de aderência: os traits modelados valem para TODOS os candidatos.
+    // Evita que projetos long-tail existam no catálogo, mas sejam dominados apenas porque não aparecem em mapas manuais.
+    if (state.answers.baseCadence && d.cadence === state.answers.baseCadence) add(id,8,`${d.name}: a cadência modelada coincide diretamente com a preferência escolhida.`);
+    if (state.answers.experience === 'beginner' && Number(t.beginner||0)) add(id,Number(t.beginner)*2.8,`${d.name}: o perfil modelado favorece usuários iniciantes.`);
+    if (state.answers.experience === 'advanced' && Number(t.complexity||0)>=2) add(id,Number(t.complexity)*1.2,`${d.name}: o nível de autonomia técnica é compatível com a complexidade modelada.`);
+    if (state.answers.experience === 'expert' && Number(t.complexity||0)>=2) add(id,Number(t.complexity)*1.8,`${d.name}: o perfil especialista aproveita melhor a flexibilidade/complexidade modelada.`);
+    if (state.answers.maintenance === 'minimal' && Number(t.lowMaintenance||0)) add(id,Number(t.lowMaintenance)*3.0,`${d.name}: baixa manutenção é parte relevante do perfil modelado.`);
+    if (['active','handsOn'].includes(state.answers.maintenance) && Number(t.maintenance||0)) add(id,Number(t.maintenance)*(state.answers.maintenance==='handsOn'?2.2:1.5),`${d.name}: a disposição para manutenção ativa combina com o perfil operacional.`);
+    if (state.answers.hardware === 'older' && Number(t.oldHardware||0)) add(id,Number(t.oldHardware)*4.0,`${d.name}: há forte aderência modelada a hardware antigo/modesto.`);
+    if (['new','veryNew'].includes(state.answers.hardware) && Number(t.newHardware||0)) add(id,Number(t.newHardware)*(state.answers.hardware==='veryNew'?3.2:2.4),`${d.name}: o perfil modelado favorece hardware recente.`);
+    if (state.answers.risk === 'critical' && Number(t.stability||0)) add(id,Number(t.stability)*3.0,`${d.name}: estabilidade/conservadorismo têm peso maior no cenário crítico.`);
+    if (state.answers.risk === 'daily' && Number(t.stability||0)) add(id,Number(t.stability)*1.4,`${d.name}: estabilidade operacional contribui para uso diário.`);
+    if (state.answers.architecture === 'atomic' && Number(t.atomic||0)) add(id,Number(t.atomic)*3.0,`${d.name}: atomicidade/imutabilidade fazem parte do perfil modelado.`);
+    if (state.answers.architecture === 'declarative' && Number(t.declarative||0)) add(id,Number(t.declarative)*3.0,`${d.name}: o perfil declarativo é parte estrutural da proposta.`);
+    if (Array.isArray(state.answers.apps) && state.answers.apps.includes('universal') && Number(t.flatpak||0)) add(id,Number(t.flatpak)*1.8,`${d.name}: Flatpak/aplicações universais têm boa aderência modelada.`);
+    if (selectedRecoveryNeeds().length && Number(t.rollback||0)) add(id,Number(t.rollback)*1.8,`${d.name}: mecanismos de rollback/recuperação fazem parte do perfil modelado.`);
+    if (state.answers.nonFreePolicy === 'strictFree' && Number(t.freeSoftware||0)) add(id,Number(t.freeSoftware)*3.0,`${d.name}: a política de software livre combina com o perfil modelado.`);
+    if (state.answers.nonFreePolicy === 'pragmatic' && Number(t.proprietaryEase||0)) add(id,Number(t.proprietaryEase)*1.5,`${d.name}: o perfil pragmático combina com facilidade para componentes proprietários quando necessários.`);
 
     // Virtualização, containers e cloud-native: capacidade operacional, não apenas disponibilidade de pacote.
     const infra=infraProfile(id), infraNeeds=selectedInfraNeeds(), infraFactor=infraStrengthFactor();
@@ -5090,7 +5192,7 @@ function scoreQuiz() {
       apt:['ubuntu','mint','debian','neon','popos','zorin','mx','elementary','linuxlite','q4os','tuxedo','endless','vanilla','devuan','antix','peppermint','bodhi','kali','parrot','backbox','caine','tsurugi','remnux','tails','whonix','proxmox','rhino'],
       redhat:['fedora','fedoraAtomic','rhel','rocky','alma','oracle','centosstream','coreos','bazzite','nobara','bluefin','aurora','asahi'],
       suse:['leap','tumbleweed','aeon','microos','sles','sled','regata'],
-      pacman:['arch','manjaro','cachyos','garuda','endeavour','blackarch','biglinux','artix','steamos'],
+      pacman:['arch','omarchy','manjaro','cachyos','garuda','endeavour','blackarch','biglinux','artix','steamos'],
       nix:['nixos'], solus:['solus'], portage:['gentoo','pentoo'], xbps:['void'], apk:['alpine'], guix:['guix']
     };
     if (eco && eco!=='none' && (ecoGroups[eco]||[]).includes(id)) add(id,7,`${d.name} pertence ao ecossistema de pacotes selecionado.`);
@@ -5130,9 +5232,60 @@ function scoreQuiz() {
     const deReq = state.answers.desktopFreshness || 'irrelevant';
     const dmReq = state.answers.dmFreshness || 'irrelevant';
     ALL_IDS.forEach(id => {
+      const d = DISTROS[id];
       const rec = resolveDesktopRecommendation(id); desktopMap[id] = rec;
       if (!rec) {
-        if (explicit) hardExclude(id, 'Nenhum dos Desktop Environments selecionados é uma combinação recomendada/modelada para este candidato.');
+        const stack=d.interfaceStack;
+        if (!stack) {
+          if (explicit) hardExclude(id, 'Nenhum dos Desktop Environments selecionados é uma combinação recomendada/modelada para este candidato.');
+          return;
+        }
+        if (explicit) {
+          hardExclude(id,'Foi exigido um Desktop Environment específico, mas este candidato usa uma pilha especializada de compositor/shell sem equivalência artificial com os DEs selecionados.');
+          return;
+        }
+
+        const stackLabel=stack.label || stack.compositor || 'pilha gráfica especializada';
+        const style=state.answers.desktopStyle || 'any';
+        const tiling=String(stack.windowModel||'').toLowerCase().includes('tiling');
+        if (style === 'tilingKeyboard' && tiling) add(id,12,`${stackLabel}: tiling/keyboard-first combina diretamente com o estilo de interface escolhido.`);
+        if (style === 'modernAdaptive' && tiling) add(id,4,`${stackLabel}: organização avançada de janelas combina parcialmente com o estilo visual escolhido.`);
+        if (style === 'traditionalModern' && Number(stack.familiarDesktop||0) === 0) add(id,-8,`${stackLabel}: a experiência não prioriza familiaridade de Windows/macOS ou operação mouse-first.`);
+        if (style === 'workflow' && stack.interaction === 'keyboard-first') add(id,2,`${stackLabel}: workflow próprio e consistente é compatível, embora seja fortemente orientado ao teclado.`);
+
+        const learning=Number(stack.learningCurve||0);
+        if (state.answers.experience === 'beginner' && learning >= 3) add(id,-7,`${stackLabel}: a curva de aprendizado é maior que a de desktops tradicionais orientados à familiaridade.`);
+        if (style === 'tilingKeyboard' && ['advanced','expert'].includes(state.answers.experience) && learning >= 3) add(id,3,`${stackLabel}: a preferência explícita por tiling/keyboard-first e a autonomia técnica combinam com a curva de aprendizado da pilha.`);
+        if (state.answers.maintenance === 'minimal' && String(stack.configurationStyle||'').includes('dotfiles')) add(id,-5,`${stackLabel}: baixa tolerância a configuração reduz o encaixe de uma experiência fortemente customizável por arquivos.`);
+        if (style === 'tilingKeyboard' && ['active','handsOn'].includes(state.answers.maintenance) && Number(stack.customization||0) >= 3) add(id,4,`${stackLabel}: a preferência explícita por alta customização e a disposição para configuração ativa combinam com a pilha.`);
+
+        const gc=stack.graphics||{}, session=state.answers.graphicsSession || 'none';
+        if (session === 'wayland') add(id,Number(gc.wayland||0)*2.2,`${stackLabel}: sessão nativa Wayland.`);
+        if (session === 'waylandRequired') {
+          if (Number(gc.wayland||0) < 2) hardExclude(id,`${stackLabel} não possui Wayland utilizável/suportado no nível exigido pela matriz atual.`);
+          else add(id,Number(gc.wayland||0)*3.2,`${stackLabel}: Wayland atende ao requisito modelado.`);
+        }
+        if (session === 'dual') {
+          if (Number(gc.wayland||0) < 2 || Number(gc.x11||0) < 2) hardExclude(id,`${stackLabel} não oferece simultaneamente Wayland e sessão X11 nativa no nível exigido; XWayland não substitui uma sessão X11.`);
+          else add(id,Math.min(Number(gc.wayland||0),Number(gc.x11||0))*3,`${stackLabel}: mantém os dois caminhos gráficos modelados.`);
+        }
+        if (session === 'x11Required') {
+          if (Number(gc.x11||0) < 2) hardExclude(id,`${stackLabel} é Wayland-native e não oferece sessão X11 nativa no nível exigido; XWayland é apenas uma camada de compatibilidade.`);
+          else add(id,Number(gc.x11||0)*3.2,`${stackLabel}: sessão X11 nativa atende ao requisito modelado.`);
+        }
+
+        const selectedFeatures=selectedGraphicsFeatures();
+        const strength=state.answers.displayFeatureStrength || 'preference';
+        const featureFactor=({preference:1.5,important:2.6,required:3.6})[strength];
+        selectedFeatures.forEach(feature => {
+          if (typeof gc[feature] !== 'number') return; // capacidade não modelada ≠ ausência comprovada
+          const cap=Number(gc[feature]), label=GRAPHICS_FEATURE_LABELS[feature] || feature;
+          add(id,cap*featureFactor,`${stackLabel}: ${label} — ${graphicsCapLabel(cap)}.`);
+          if (strength === 'required' && cap < 2) hardExclude(id,`${label} foi definido como requisito forte, mas ${stackLabel} tem suporte ausente, experimental ou parcial na matriz atual.`);
+        });
+        if (selectedFeatures.includes('xwayland') && selectedFeatures.includes('fractional') && stack.xwaylandHidpiCaveat) {
+          add(id,-2,`${stackLabel}: XWayland em HiDPI pode exigir ajustes por aplicativo e não equivale a escala nativa perfeita para aplicações X11 legadas.`);
+        }
         return;
       }
       const p = rec.profile, deName = DESKTOPS[rec.de].name;
@@ -5225,6 +5378,29 @@ function scoreQuiz() {
     add('solus',3,'Rolling curado combina com a preferência por integração, embora o mecanismo de recuperação seja menos abrangente que Snapper/deployments/generations.');
   }
   if (state.answers.baseCadence === 'rollingHandsOn' && ['advanced','expert'].includes(state.answers.experience)) add('arch',8,'Rolling hands-on + experiência avançada favorecem Arch.');
+
+    // 0.3.0 — a pilha gráfica especializada é pontuada genericamente acima; aqui ficam apenas sinais de base/workstation.
+    if (selectedWorkloads.includes('dev')) {
+      if (state.answers.architecture === 'traditional') add('omarchy',5,'Omarchy mantém administração package-based/pacman em uma workstation Arch-based.');
+      if (state.answers.architecture === 'atomic') add('nitrux',5,'A preferência por base imutável/idempotente combina com a proposta atual do Nitrux.');
+      if (state.answers.baseCadence === 'rollingIntegrated') { add('omarchy',5,'Rolling com curadoria integrada combina com o canal Stable do Omarchy.'); add('kaos',4,'KaOS é Rolling integrado com repositórios próprios.'); }
+      if (state.answers.ecosystem === 'pacman') { add('omarchy',5,'A preferência por pacman/ecossistema Arch reforça o encaixe com Omarchy.'); add('kaos',3,'KaOS também usa pacman com repositórios próprios, embora não seja Arch-based.'); }
+      if (Array.isArray(state.answers.freshLayers) && state.answers.freshLayers.includes('devtools')) add('omarchy',4,'Ferramentas de desenvolvimento atuais combinam com o foco de workstation Dev do Omarchy.');
+      if (['advanced','expert'].includes(state.answers.experience) && ['active','handsOn'].includes(state.answers.maintenance)) add('omarchy',4,'Perfil técnico hands-on combina com a proposta opinativa e centrada em terminal do Omarchy.');
+    }
+    if (['useful','important','strong'].includes(state.answers.devAiPriority)) {
+      if (state.answers.architecture === 'atomic') add('bluefin',7,'Bluefin combina desenvolvimento/IA com um host image-based/bootc alinhado à preferência por atualização atômica.');
+      if (Array.isArray(state.answers.infraNeeds) && state.answers.infraNeeds.includes('appContainers')) add('bluefin',6,'Developer Mode do Bluefin é centrado em containers/devcontainers e separa o ambiente de desenvolvimento do host.');
+      if (Array.isArray(state.answers.gpuNeeds) && state.answers.gpuNeeds.includes('cuda')) add('bluefin',8,'Bluefin GDX oferece uma variante oficial de workstation para IA/ML com NVIDIA e CUDA.');
+    }
+  // 0.3.0 — perfis específicos apoiados por critérios já perguntados ao usuário.
+  if (selectedWorkloads.includes('desktop')) {
+    if (state.answers.experience === 'beginner' && ['minimal','moderate'].includes(state.answers.maintenance) && state.answers.desktopStyle === 'traditionalModern') add('zorin',10,'Zorin combina migração de desktop familiar, baixa fricção e foco explícito em iniciantes.');
+    if (state.answers.hardware === 'older' && state.answers.desktopStyle === 'lightweight' && ['beginner','intermediate'].includes(state.answers.experience)) add('linuxlite',12,'Linux Lite combina Ubuntu LTS, Xfce, simplicidade e hardware modesto.');
+    if (state.answers.hardware === 'older' && state.answers.desktopStyle === 'lightweight' && Array.isArray(state.answers.apps) && state.answers.apps.includes('portable')) add('puppy',16,'Puppy é diretamente orientado a uso live/frugal, portabilidade e hardware de poucos recursos.');
+    if (state.answers.ecosystem === 'mandriva' && state.answers.baseCadence === 'fixedFresh') add('mageia',10,'Mageia combina linhagem Mandriva/RPM com release fixa e desktop comunitário generalista.');
+    if (state.answers.ecosystem === 'mandriva' && ['rollingIntegrated','fixedFresh'].includes(state.answers.baseCadence)) add('openmandriva',state.answers.baseCadence==='rollingIntegrated'?12:6,'OpenMandriva oferece ROME Rolling e Rock Fixed dentro da linhagem Mandriva/RPM.');
+  }
   if (state.answers.architecture === 'declarative') add('nixos',12,'Configuração declarativa e reproduzível foi escolhida explicitamente.');
   if (state.answers.architecture === 'atomic') add('fedoraAtomic',10,'Base atômica com deployments/rollback foi escolhida explicitamente.');
 
@@ -5304,6 +5480,19 @@ function showResult() {
     const selectedGF=selectedGraphicsFeatures();
     if(selectedGF.length) meta.push(['Recursos gráficos',selectedGF.map(x=>GRAPHICS_FEATURE_LABELS[x]||x).join(', ')]);
     meta.push(['Mesa / Vulkan',graphicsStackFreshnessLabel()]);
+  } else if (distro.interfaceStack?.label) {
+    const stack=distro.interfaceStack;
+    meta.push(['Pilha de interface',stack.label]);
+    meta.push(['Tipo de interface',stack.kind || 'Pilha gráfica especializada sem Desktop Environment tradicional']);
+    if(stack.sessionProtocol) meta.push(['Protocolo/sessão',stack.sessionProtocol]);
+    if(stack.windowModel) meta.push(['Modelo de janelas',stack.windowModel]);
+    if(stack.shell) meta.push(['Shell',stack.shell]);
+    if(stack.shellToolkit) meta.push(['Toolkit do shell',stack.shellToolkit]);
+    if(stack.interaction) meta.push(['Perfil de interação',stack.interaction]);
+    if(stack.configurationStyle) meta.push(['Configuração',stack.configurationStyle]);
+    if(stack.graphics?.xwayland) meta.push(['Compatibilidade X11','XWayland como ponte para aplicações X11; não equivale a sessão X11 nativa']);
+    if(stack.xwaylandHidpiCaveat) meta.push(['XWayland / HiDPI','Pode exigir ajustes por aplicação e apresentar limitações de escala']);
+    if(stack.nvidiaCaution) meta.push(['NVIDIA','Pode exigir configuração adicional; não é classificada como incompatibilidade absoluta']);
   }
   if(networkRelevantAnswers(state.answers) && selectedNetworkRoles().length) meta.push(['Rede / dataplane',networkSummary(top.id,true)]);
   if(observabilityRelevantAnswers(state.answers) && selectedObsGoals().length) meta.push(['Observabilidade / telemetria',observabilitySummary(top.id,true)]);
@@ -5372,7 +5561,7 @@ function showResult() {
   if ((state.answers.identityBackend||'any')==='cloud' && top.id==='ubuntu') extraTradeoffs.push('Login via IdP cloud no Ubuntu usa authd/brokers e tem lifecycle/escopo próprios; valide a versão estável do broker, o provedor e o fluxo de recuperação antes de produção.');
   if(fleetRelevantAnswers(state.answers)) {
     const fp=fleetProfile(top.id), scale=state.answers.fleetScale||'single';
-    if(['large','massive'].includes(scale) && Number(fp.largeScale||0)<3) extraTradeoffs.push(`A escala informada (${fleetScaleLabel()}) exige desenho de control plane, segmentação, proxies e rollout; a integração modelada de ${d.name} não é classificada como máxima para esse cenário.`);
+    if(['large','massive'].includes(scale) && Number(fp.largeScale||0)<3) extraTradeoffs.push(`A escala informada (${fleetScaleLabel()}) exige desenho de control plane, segmentação, proxies e rollout; a integração modelada de ${distro.name} não é classificada como máxima para esse cenário.`);
     if(state.answers.fleetControl==='vendor' && Number(fp.vendorSuite||0)<3) extraTradeoffs.push('Você priorizou uma suíte integrada do fornecedor; confirme licenciamento, cobertura de clientes, proxies e lifecycle da plataforma de gestão antes de padronizar a frota.');
     if(selectedFleetNeeds().includes('multiDistro') && Number(fp.multiDistro||0)<3) extraTradeoffs.push('A frota é multi-distribuição; valide quais famílias/versões o control plane escolhido realmente suporta como clientes, pois “Ansible funciona” não equivale a lifecycle central multi-distro.');
     if(selectedProvisionNeeds().includes('cloudInit') && Number(fp.cloudInit||0)<2) extraTradeoffs.push('cloud-init foi solicitado, mas não é o mecanismo nativo principal desta plataforma; use o provisioning declarativo/image-based recomendado pelo projeto quando aplicável.');
@@ -5438,7 +5627,7 @@ function shortAlternative(id) {
     tumbleweed:'Rolling atual com forte integração e snapshots/rollback.',
     arch:'Máximo controle e ampla escolha de desktops recentes, com maior responsabilidade de manutenção.',
     nixos:'Vários desktops sobre configuração declarativa, generations e rollback.',
-    rhel:'Lifecycle empresarial, vendor support e certificações.',
+    rhel:'Lifecycle empresarial, suporte comercial do fornecedor e certificações.',
     kali:'Especializado em segurança ofensiva e laboratórios de pentest.',
     neon:'KDE/Plasma muito recente sobre base Ubuntu LTS.',
     popos:'COSMIC recente e integrado sobre base LTS.',
@@ -5480,7 +5669,7 @@ function buildCopyText() {
   const answers=visibleQuestions().map(q=>`- ${q.title}: ${formatAnswer(q)}`).join('\n');
   const selectedGF=selectedGraphicsFeatures();
   const graphicsLine = rec ? `\nSessão gráfica: ${graphicsSessionLabel()}\nRecursos gráficos: ${selectedGF.length?selectedGF.map(x=>GRAPHICS_FEATURE_LABELS[x]||x).join(', '):'Nenhum recurso avançado selecionado'}\nForça dos recursos: ${selectedGF.length?graphicsFeatureStrengthLabel():'—'}\nMesa / Vulkan: ${graphicsStackFreshnessLabel()}` : '';
-  const desktopLine = rec ? `\nDesktop Environment: ${DESKTOPS[rec.de].name}\nAtualidade do desktop: ${freshnessLabel(rec.profile.fresh)}\nCadência do desktop: ${trackingLabel(rec.profile.track)}\nDisplay Manager: ${rec.profile.dm}\nAtualidade do login: ${freshnessLabel(rec.profile.dmFresh)}\nCadência do login: ${trackingLabel(rec.profile.dmTrack)}${graphicsLine}` : '';
+  const desktopLine = rec ? `\nDesktop Environment: ${DESKTOPS[rec.de].name}\nAtualidade do desktop: ${freshnessLabel(rec.profile.fresh)}\nCadência do desktop: ${trackingLabel(rec.profile.track)}\nDisplay Manager: ${rec.profile.dm}\nAtualidade do login: ${freshnessLabel(rec.profile.dmFresh)}\nCadência do login: ${trackingLabel(rec.profile.dmTrack)}${graphicsLine}` : (d.interfaceStack?.label ? `\nPilha de interface: ${d.interfaceStack.label}\nTipo: ${d.interfaceStack.kind || 'pilha gráfica especializada'}${d.interfaceStack.sessionProtocol?`\nProtocolo/sessão: ${d.interfaceStack.sessionProtocol}`:''}${d.interfaceStack.windowModel?`\nModelo de janelas: ${d.interfaceStack.windowModel}`:''}${d.interfaceStack.shell?`\nShell: ${d.interfaceStack.shell}`:''}${d.interfaceStack.shellToolkit?`\nToolkit do shell: ${d.interfaceStack.shellToolkit}`:''}${d.interfaceStack.interaction?`\nPerfil de interação: ${d.interfaceStack.interaction}`:''}${d.interfaceStack.graphics?.xwayland?`\nCompatibilidade X11: XWayland como ponte; não equivale a sessão X11 nativa`:''}${d.interfaceStack.xwaylandHidpiCaveat?`\nXWayland/HiDPI: pode exigir ajustes por aplicação`:''}${d.interfaceStack.nvidiaCaution?`\nNVIDIA: cautela/configuração adicional pode ser necessária`:''}` : '');
   const networkLine = (networkRelevantAnswers(state.answers) && selectedNetworkRoles().length) ? `\nRede / dataplane: ${networkSummary(top.id)}` : '';
   const observabilityLine = (observabilityRelevantAnswers(state.answers) && selectedObsGoals().length) ? `\nObservabilidade / telemetria: ${observabilitySummary(top.id)}` : '';
   const infraLine = selectedInfraNeeds().length ? `\nVirtualização / containers: ${infraSummary(top.id)}\nAdministração da infraestrutura: ${infraControlLabel()}${state.answers.containerEngine?`\nEngine/runtime de containers: ${containerEngineLabel()}`:''}${state.answers.kubeStyle?`\nArquitetura Kubernetes: ${kubeStyleLabel()}`:''}` : '';
